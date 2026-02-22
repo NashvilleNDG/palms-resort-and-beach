@@ -1,0 +1,13 @@
+# https://www.robotstxt.org/robotstxt.html
+User-agent: *
+Allow: /
+
+# Optional: allow common AI crawlers (uncomment if you want AI indexing)
+User-agent: GPTBot
+Allow: /
+User-agent: Claude-Web
+Allow: /
+User-agent: Anthropic-AI
+Allow: /
+
+Sitemap: https://palmsresortstcroix.com/sitemap.xml
