@@ -10,4 +10,4 @@ Allow: /
 User-agent: Anthropic-AI
 Allow: /
 
-Sitemap: https://palmsresortstcroix.com/sitemap.xml
+Sitemap: https://palmsresortandbeach.com/sitemap.xml

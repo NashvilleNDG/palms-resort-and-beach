@@ -6,7 +6,7 @@ const BOOKING_URL = 'https://hotels.cloudbeds.com/en/reservation/DRaDzt?currency
 export const metadata: Metadata = {
   title: 'Accommodations',
   description:
-    '45 beachfront rooms at Palms Resort & Beach, St. Croix. Partial ocean, garden view, ocean front, and rooftop suite. Book direct.',
+    '45 beachfront rooms at Palms Resort & Beach, St. Croix. Ocean/garden view, ocean front, and suite. Book direct.',
   openGraph: {
     title: 'Accommodations | Palms Resort & Beach',
     description: '45 beachfront rooms with private patios or balconies on St. Croix.',
@@ -15,22 +15,23 @@ export const metadata: Metadata = {
 
 const roomTypes = [
   {
-    name: 'Partial Ocean / Garden View',
+    name: 'Ocean / Garden View',
     description:
       'Comfortable rooms with views of our tropical gardens and partial ocean glimpses. Private patio or balcony, king or two queens.',
-    image: 'https://images.unsplash.com/photo-1602002418082-a4443e081dd1?w=800&q=80',
+    image: '/images/Suite.png',
   },
   {
     name: 'Ocean Front',
     description:
       'Direct ocean views from your private balcony. Wake up to the sound of waves and stunning Caribbean sunrises. King or two queens available.',
-    image: 'https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=800&q=80',
+    image: '/images/Suite2.png',
+    imageOnRight: true,
   },
   {
-    name: 'Rooftop Suite',
+    name: 'Suite',
     description:
       'Our premier accommodation with panoramic ocean and resort views. Spacious living area, premium amenities, and the best sunset views on property.',
-    image: 'https://images.unsplash.com/photo-1611892440504-42a792e24d32?w=800&q=80',
+    image: '/images/Suite1.png',
   },
 ];
 
@@ -48,8 +49,12 @@ const amenities = [
 export default function RoomsPage() {
   return (
     <>
-      <section className="relative py-24 bg-teal-900 text-center">
-        <div className="absolute inset-0 bg-gradient-to-b from-teal-800 to-teal-900" />
+      <section className="relative py-24 bg-teal-900 text-center min-h-[50vh] flex flex-col justify-center">
+        <div
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+          style={{ backgroundImage: 'url(/images/resort.png)' }}
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-teal-900/80 via-teal-900/70 to-teal-900" />
         <div className="relative z-10 container-narrow px-4">
           <p className="text-amber-300 uppercase tracking-widest text-sm font-medium">
             Accommodations
@@ -76,24 +81,49 @@ export default function RoomsPage() {
             {roomTypes.map((room) => (
               <li key={room.name} className="rounded-2xl overflow-hidden bg-white shadow-xl">
                 <div className="grid md:grid-cols-2 gap-0">
-                  <div className="relative h-64 md:h-80">
-                    <Image
-                      src={room.image}
-                      alt={room.name}
-                      fill
-                      className="object-cover"
-                      sizes="(max-width: 768px) 100vw, 50vw"
-                    />
-                  </div>
-                  <div className="p-8 flex flex-col justify-center">
-                    <h3
-                      className="text-2xl font-bold text-gray-800"
-                      style={{ fontFamily: 'var(--font-playfair), serif' }}
-                    >
-                      {room.name}
-                    </h3>
-                    <p className="mt-3 text-gray-600">{room.description}</p>
-                  </div>
+                  {room.imageOnRight ? (
+                    <>
+                      <div className="p-8 flex flex-col justify-center order-2 md:order-1">
+                        <h3
+                          className="text-2xl font-bold text-gray-800"
+                          style={{ fontFamily: 'var(--font-playfair), serif' }}
+                        >
+                          {room.name}
+                        </h3>
+                        <p className="mt-3 text-gray-600">{room.description}</p>
+                      </div>
+                      <div className="relative h-64 md:h-80 order-1 md:order-2">
+                        <Image
+                          src={room.image}
+                          alt={room.name}
+                          fill
+                          className="object-cover"
+                          sizes="(max-width: 768px) 100vw, 50vw"
+                        />
+                      </div>
+                    </>
+                  ) : (
+                    <>
+                      <div className="relative h-64 md:h-80">
+                        <Image
+                          src={room.image}
+                          alt={room.name}
+                          fill
+                          className="object-cover"
+                          sizes="(max-width: 768px) 100vw, 50vw"
+                        />
+                      </div>
+                      <div className="p-8 flex flex-col justify-center">
+                        <h3
+                          className="text-2xl font-bold text-gray-800"
+                          style={{ fontFamily: 'var(--font-playfair), serif' }}
+                        >
+                          {room.name}
+                        </h3>
+                        <p className="mt-3 text-gray-600">{room.description}</p>
+                      </div>
+                    </>
+                  )}
                 </div>
               </li>
             ))}

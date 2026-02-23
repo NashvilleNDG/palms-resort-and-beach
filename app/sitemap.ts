@@ -1,7 +1,7 @@
 import type { MetadataRoute } from 'next';
 
 const baseUrl =
-  process.env.NEXT_PUBLIC_BASE_URL ?? 'https://palmsresortstcroix.com';
+  process.env.NEXT_PUBLIC_BASE_URL ?? 'https://palmsresortandbeach.com';
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const routes = [

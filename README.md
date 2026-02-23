@@ -35,7 +35,7 @@ Static files are in the **`out/`** directory.
 - **Publish directory**: `out` (the static export output)
 - No server or rewrites required; use any static host (Render, Vercel, Netlify, GitHub Pages, S3, etc.).
 
-Set `NEXT_PUBLIC_BASE_URL` to your production URL (e.g. `https://yoursite.com`) so the sitemap uses correct absolute URLs. Default is `https://palmsresortstcroix.com`.
+Set `NEXT_PUBLIC_BASE_URL` to your production URL (e.g. `https://yoursite.com`) so the sitemap uses correct absolute URLs. Default is `https://palmsresortandbeach.com`.
 
 ## Project structure
 

@@ -17,7 +17,7 @@ const lato = Lato({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://palmsresortstcroix.com'),
+  metadataBase: new URL('https://palmsresortandbeach.com'),
   title: {
     default: 'Palms Resort & Beach — St. Croix, U.S. Virgin Islands',
     template: '%s | Palms Resort & Beach',

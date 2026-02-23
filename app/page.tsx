@@ -10,7 +10,7 @@ const PHONE_TEL = 'tel:3407188920';
 const HERO_IMAGE =
   'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1920&q=85';
 const CTA_IMAGE = '/images/swimming-pool.jpg';
-const BASE_URL = 'https://palmsresortstcroix.com';
+const BASE_URL = 'https://palmsresortandbeach.com';
 
 // SEO: JSON-LD Hotel + FAQ schema
 const hotelSchema = {
@@ -346,7 +346,7 @@ export default function HomePage() {
                     </h3>
                     <p className="text-sm text-white/90 mt-1">
                       Forty-five rooms with private patios or balconies and stunning
-                      Caribbean views. King or two queens; ocean front and rooftop suites.
+                      Caribbean views. King or two queens; ocean front and suite.
                     </p>
                     <span className="inline-block mt-3 text-amber-300 font-semibold text-sm">
                       Explore Rooms →
