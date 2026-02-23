@@ -23,7 +23,10 @@ export const metadata: Metadata = {
     template: '%s | Palms Resort & Beach',
   },
   description:
-    'Escape to Palms Resort & Beach on St. Croix, U.S. Virgin Islands. 40 beachfront rooms, mile-long palm-lined beach, freshwater pool, dining, and endless Caribbean sunshine.',
+    'Escape to Palms Resort & Beach on St. Croix, U.S. Virgin Islands. 45 beachfront rooms, mile-long palm-lined beach, freshwater pool, dining, and endless Caribbean sunshine.',
+  icons: {
+    icon: '/images/palmslogo.svg',
+  },
   keywords: [
     'Palms Resort & Beach',
     'St. Croix',
@@ -35,7 +38,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Palms Resort & Beach — St. Croix, U.S. Virgin Islands',
     description:
-      'Escape to Palms Resort & Beach on St. Croix. 40 beachfront rooms, mile-long beach, pool, dining, and Caribbean sunshine.',
+      'Escape to Palms Resort & Beach on St. Croix. 45 beachfront rooms, mile-long beach, pool, dining, and Caribbean sunshine.',
     type: 'website',
   },
   robots: {

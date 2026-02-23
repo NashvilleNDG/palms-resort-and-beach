@@ -6,10 +6,10 @@ const BOOKING_URL = 'https://hotels.cloudbeds.com/en/reservation/DRaDzt?currency
 export const metadata: Metadata = {
   title: 'Accommodations',
   description:
-    '40 beachfront rooms at Palms Resort & Beach, St. Croix. Partial ocean, garden view, ocean front, and rooftop suite. Book direct for the best rates.',
+    '45 beachfront rooms at Palms Resort & Beach, St. Croix. Partial ocean, garden view, ocean front, and rooftop suite. Book direct.',
   openGraph: {
     title: 'Accommodations | Palms Resort & Beach',
-    description: '40 beachfront rooms with private patios or balconies on St. Croix.',
+    description: '45 beachfront rooms with private patios or balconies on St. Croix.',
   },
 };
 
@@ -61,7 +61,7 @@ export default function RoomsPage() {
             It&apos;s Time to Forget About Time
           </h1>
           <p className="mt-6 text-lg text-teal-100 max-w-2xl mx-auto">
-            40 beachfront rooms with private patios or balconies, ocean breezes,
+            45 beachfront rooms with private patios or balconies, ocean breezes,
             and stunning Caribbean views. Your island retreat awaits.
           </p>
         </div>

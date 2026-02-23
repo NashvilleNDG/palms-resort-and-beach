@@ -1,8 +1,10 @@
 import Link from 'next/link';
+import Image from 'next/image';
 
 const BOOKING_URL = 'https://hotels.cloudbeds.com/en/reservation/DRaDzt?currency=usd';
 const PHONE = 'tel:3407188920';
-const LOCATION = 'St. Croix, U.S. Virgin Islands';
+const LOCATION = '4126, Christiansted, St Croix 00820, U.S. Virgin Islands';
+const LOGO_SRC = '/images/palmslogo.svg';
 
 const navLinks = [
   { href: '/', label: 'Home' },
@@ -36,20 +38,14 @@ export function Header() {
           href="/"
           className="flex items-center gap-2 focus:outline-none focus:ring-2 focus:ring-amber-500 rounded"
         >
-          <span aria-hidden className="text-2xl">
-            🌴
-          </span>
-          <span className="flex flex-col">
-            <span
-              className="font-bold text-xl text-gray-900 tracking-tight"
-              style={{ fontFamily: 'var(--font-playfair), serif' }}
-            >
-              PALMS
-            </span>
-            <span className="text-sm font-normal text-gray-600">
-              Resort & Beach
-            </span>
-          </span>
+          <Image
+            src={LOGO_SRC}
+            alt="Palms Resort & Beach"
+            width={160}
+            height={48}
+            className="h-10 w-auto sm:h-12"
+            priority
+          />
         </Link>
         <nav aria-label="Main navigation" className="flex items-center gap-6">
           {navLinks.map(({ href, label }) => (

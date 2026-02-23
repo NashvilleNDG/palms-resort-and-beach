@@ -1,8 +1,10 @@
 import Link from 'next/link';
+import Image from 'next/image';
 
 const BOOKING_URL = 'https://hotels.cloudbeds.com/en/reservation/DRaDzt?currency=usd';
 const PHONE = 'tel:3407188920';
-const LOCATION = 'St. Croix, U.S. Virgin Islands';
+const LOCATION = '4126, Christiansted, St Croix 00820, U.S. Virgin Islands';
+const LOGO_SRC = '/images/palmslogo.svg';
 
 const footerLinks = [
   { href: '/', label: 'Home' },
@@ -19,13 +21,16 @@ export function Footer() {
       <div className="container-wide section-padding">
         <div className="grid gap-12 sm:grid-cols-2 lg:grid-cols-4">
           <div>
-            <h2
-              className="text-lg font-semibold text-white"
-              style={{ fontFamily: 'var(--font-playfair), serif' }}
-            >
-              Palms Resort & Beach
-            </h2>
-            <p className="mt-2 text-sm text-teal-100">
+            <Link href="/" className="inline-block">
+              <Image
+                src={LOGO_SRC}
+                alt="Palms Resort & Beach"
+                width={160}
+                height={48}
+                className="h-10 w-auto brightness-0 invert"
+              />
+            </Link>
+            <p className="mt-3 text-sm text-teal-100">
               Your island escape on St. Croix, U.S. Virgin Islands. Beachfront
               rooms, mile-long beach, and unforgettable Caribbean views.
             </p>

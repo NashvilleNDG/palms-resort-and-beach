@@ -2,12 +2,12 @@ import type { Metadata } from 'next';
 
 const BOOKING_URL = 'https://hotels.cloudbeds.com/en/reservation/DRaDzt?currency=usd';
 const PHONE = 'tel:3407188920';
-const LOCATION = 'St. Croix, U.S. Virgin Islands';
+const LOCATION = '4126, Christiansted, St Croix 00820, U.S. Virgin Islands';
 
 export const metadata: Metadata = {
   title: 'Contact',
   description:
-    'Contact Palms Resort & Beach, St. Croix. Phone 340-718-8920. Address and directions. Book your stay online.',
+    'Contact Palms Resort & Beach, St. Croix. 4126, Christiansted, St Croix 00820. Phone 340-718-8920. Book your stay online.',
   openGraph: {
     title: 'Contact | Palms Resort & Beach',
     description: 'Get in touch or book your stay at Palms Resort & Beach, St. Croix.',
@@ -58,7 +58,7 @@ export default function ContactPage() {
               </address>
               <p className="mt-6 text-gray-600">
                 Front desk is available for questions and reservations. For
-                the best rates and availability, book directly online.
+                the best availability, book directly online.
               </p>
             </div>
 
@@ -70,8 +70,8 @@ export default function ContactPage() {
                 Book Your Stay
               </h2>
               <p className="mt-4 text-gray-600">
-                Ready to reserve? Use our secure booking link below for the
-                best rates and instant confirmation.
+                Ready to reserve? Use our secure booking link below for
+                availability and instant confirmation.
               </p>
               <a
                 href={BOOKING_URL}
@@ -84,8 +84,8 @@ export default function ContactPage() {
               <div className="mt-8 rounded-xl border border-stone-200 bg-white p-6">
                 <p className="font-medium text-gray-800">Map & Directions</p>
                 <p className="mt-2 text-sm text-gray-600">
-                  Palms Resort & Beach is located on the island of St. Croix,
-                  U.S. Virgin Islands. Search for &quot;Palms Resort & Beach St. Croix&quot; in your
+                  Palms Resort & Beach is located at 4126, Christiansted, St Croix 00820,
+                  U.S. Virgin Islands. Search for the address or &quot;Palms Resort & Beach St. Croix&quot; in your
                   preferred maps app for driving directions from the airport or
                   ferry.
                 </p>

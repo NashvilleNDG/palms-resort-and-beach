@@ -16,4 +16,10 @@ body {
   .container-wide {
     @apply mx-auto max-w-7xl;
   }
+  .section-label {
+    @apply uppercase tracking-wider text-sm font-medium text-teal-600;
+  }
+  .section-title {
+    font-family: var(--font-playfair), Georgia, serif;
+  }
 }
