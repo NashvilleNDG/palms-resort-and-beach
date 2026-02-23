@@ -19,15 +19,15 @@ export function Footer() {
   return (
     <footer className="border-t border-teal-800 bg-teal-900 text-white">
       <div className="container-wide section-padding">
-        <div className="grid gap-12 sm:grid-cols-2 lg:grid-cols-4">
-          <div>
+        <div className="grid gap-10 sm:gap-12 sm:grid-cols-2 lg:grid-cols-4 text-center lg:text-left">
+          <div className="flex flex-col items-center lg:items-start">
             <Link href="/" className="inline-block">
               <Image
                 src={LOGO_SRC}
                 alt="Palms Resort & Beach"
                 width={160}
                 height={48}
-                className="h-10 w-auto brightness-0 invert"
+                className="h-11 sm:h-12 lg:h-9 w-auto brightness-0 invert"
               />
             </Link>
             <p className="mt-3 text-sm text-teal-100">
@@ -35,16 +35,16 @@ export function Footer() {
               rooms, mile-long beach, and unforgettable Caribbean views.
             </p>
           </div>
-          <div>
+          <div className="flex flex-col items-center lg:items-start">
             <h3 className="text-sm font-semibold uppercase tracking-wider text-white">
               Explore
             </h3>
-            <ul className="mt-3 space-y-2">
+            <ul className="mt-3 space-y-0" role="list">
               {footerLinks.map(({ href, label }) => (
                 <li key={href}>
                   <Link
                     href={href}
-                    className="text-teal-100 transition hover:text-white focus:outline-none focus:ring-2 focus:ring-amber-500 rounded"
+                    className="block py-2.5 text-teal-100 transition hover:text-white focus:outline-none focus:ring-2 focus:ring-amber-500 focus:ring-inset rounded min-h-[44px] flex items-center justify-center lg:justify-start"
                   >
                     {label}
                   </Link>
@@ -52,7 +52,7 @@ export function Footer() {
               ))}
             </ul>
           </div>
-          <div>
+          <div className="flex flex-col items-center lg:items-start">
             <h3 className="text-sm font-semibold uppercase tracking-wider text-white">
               Contact
             </h3>
@@ -61,14 +61,14 @@ export function Footer() {
               <p className="mt-2">
                 <a
                   href={PHONE}
-                  className="transition hover:text-amber-300 focus:outline-none focus:ring-2 focus:ring-amber-500 rounded"
+                  className="inline-flex items-center min-h-[44px] transition hover:text-amber-300 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:ring-inset rounded"
                 >
                   340-718-8920
                 </a>
               </p>
             </address>
           </div>
-          <div>
+          <div className="flex flex-col items-center lg:items-start">
             <h3 className="text-sm font-semibold uppercase tracking-wider text-white">
               Book Your Stay
             </h3>
@@ -79,13 +79,13 @@ export function Footer() {
               href={BOOKING_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="mt-3 inline-block font-medium text-amber-300 transition hover:text-amber-200 focus:outline-none focus:ring-2 focus:ring-amber-500 rounded"
+              className="mt-3 inline-flex items-center min-h-[44px] font-medium text-amber-300 transition hover:text-amber-200 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:ring-inset rounded"
             >
               Book Your Stay →
             </a>
           </div>
         </div>
-        <div className="mt-12 border-t border-teal-800 pt-8 text-center text-sm text-teal-200">
+        <div className="mt-10 sm:mt-12 border-t border-teal-800 pt-6 sm:pt-8 text-center text-sm text-teal-200">
           <p>&copy; {new Date().getFullYear()} Palms Resort & Beach. All rights reserved.</p>
         </div>
       </div>

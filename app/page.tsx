@@ -111,81 +111,81 @@ export default function HomePage() {
       {/* 1. Hero — modern, clear value */}
       <section
         aria-label="Welcome to Palms Resort & Beach"
-        className="relative min-h-[85vh] flex flex-col justify-center items-center text-center bg-gray-900"
+        className="relative min-h-[75vh] sm:min-h-[85vh] flex flex-col justify-center items-center text-center bg-gray-900"
       >
         <div
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{ backgroundImage: `url(${HERO_IMAGE})` }}
         />
         <div className="absolute inset-0 bg-gradient-to-b from-black/55 via-black/45 to-black/65" />
-        <div className="relative z-10 px-4 py-24 max-w-4xl">
-          <p className="text-amber-300 uppercase tracking-[0.2em] text-sm font-semibold mb-4">
+        <div className="relative z-10 px-4 py-16 sm:py-24 max-w-4xl">
+          <p className="text-amber-300 uppercase tracking-[0.15em] sm:tracking-[0.2em] text-xs sm:text-sm font-semibold mb-3 sm:mb-4">
             St. Croix, U.S. Virgin Islands
           </p>
           <h1
-            className="text-white text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold drop-shadow-lg tracking-tight"
+            className="text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold drop-shadow-lg tracking-tight"
             style={{ fontFamily: 'var(--font-playfair), serif' }}
           >
             Palms Resort
             <br />
             & Beach
           </h1>
-          <p className="mt-6 text-lg sm:text-xl text-white/95 max-w-2xl mx-auto drop-shadow leading-relaxed">
+          <p className="mt-4 sm:mt-6 text-base sm:text-lg lg:text-xl text-white/95 max-w-2xl mx-auto drop-shadow leading-relaxed">
             Your beachfront escape in the Caribbean. Forty-five rooms, a mile-long
             palm-lined beach, pool, dining, and endless sunshine on St. Croix.
           </p>
-          <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
+          <div className="mt-8 sm:mt-10 flex flex-wrap items-center justify-center gap-3 sm:gap-4">
             <a
               href={BOOKING_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="rounded-lg bg-amber-500 px-7 py-3.5 text-base font-semibold text-gray-900 shadow-lg transition hover:bg-amber-400 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:ring-offset-2 focus:ring-offset-gray-900"
+              className="min-h-[44px] inline-flex items-center justify-center rounded-lg bg-amber-500 px-5 sm:px-7 py-3 sm:py-3.5 text-base font-semibold text-gray-900 shadow-lg transition hover:bg-amber-400 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:ring-offset-2 focus:ring-offset-gray-900"
             >
               Book Your Stay
             </a>
             <Link
               href="/rooms"
-              className="rounded-lg border-2 border-white bg-white/10 px-7 py-3.5 text-base font-semibold text-white backdrop-blur-sm transition hover:bg-white/20 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-900"
+              className="min-h-[44px] inline-flex items-center justify-center rounded-lg border-2 border-white bg-white/10 px-5 sm:px-7 py-3 sm:py-3.5 text-base font-semibold text-white backdrop-blur-sm transition hover:bg-white/20 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-900"
             >
               View Rooms
             </Link>
           </div>
         </div>
         <div
-          className="absolute bottom-8 left-1/2 -translate-x-1/2 text-white/80 animate-bounce"
+          className="absolute bottom-6 left-1/2 -translate-x-1/2 text-white/80 animate-bounce"
           aria-hidden
         >
-          <span className="text-3xl">〰️</span>
+          <span className="text-2xl sm:text-3xl">〰️</span>
         </div>
       </section>
 
       {/* 2. Stats bar — resort owner + customer: key numbers */}
       <section
         aria-label="Resort at a glance"
-        className="bg-teal-800 text-white py-8"
+        className="bg-teal-800 text-white py-6 sm:py-8"
       >
         <div className="container-wide px-4">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8 text-center">
             <div>
-              <span className="block text-3xl sm:text-4xl font-bold text-amber-300">45</span>
-              <span className="block mt-1 text-sm text-teal-100">Beachfront Rooms</span>
+              <span className="block text-2xl sm:text-3xl md:text-4xl font-bold text-amber-300">45</span>
+              <span className="block mt-1 text-xs sm:text-sm text-teal-100">Beachfront Rooms</span>
             </div>
             <div>
-              <span className="block text-3xl sm:text-4xl font-bold text-amber-300">1 mi</span>
-              <span className="block mt-1 text-sm text-teal-100">Palm-Lined Beach</span>
+              <span className="block text-2xl sm:text-3xl md:text-4xl font-bold text-amber-300">1 mi</span>
+              <span className="block mt-1 text-xs sm:text-sm text-teal-100">Palm-Lined Beach</span>
             </div>
             <div>
-              <span className="block text-3xl sm:text-4xl font-bold text-amber-300">24/7</span>
-              <span className="block mt-1 text-sm text-teal-100">Front Desk</span>
+              <span className="block text-2xl sm:text-3xl md:text-4xl font-bold text-amber-300">24/7</span>
+              <span className="block mt-1 text-xs sm:text-sm text-teal-100">Front Desk</span>
             </div>
             <div>
               <a
                 href={PHONE_TEL}
-                className="block text-2xl sm:text-3xl font-bold text-amber-300 hover:text-amber-200 transition"
+                className="block text-xl sm:text-2xl md:text-3xl font-bold text-amber-300 hover:text-amber-200 transition min-h-[44px] flex flex-col justify-center"
               >
                 {PHONE}
               </a>
-              <span className="block mt-1 text-sm text-teal-100">Call to Book or Inquire</span>
+              <span className="block mt-1 text-xs sm:text-sm text-teal-100">Call to Book or Inquire</span>
             </div>
           </div>
         </div>
@@ -250,46 +250,46 @@ export default function HomePage() {
         className="section-padding bg-teal-900 text-white"
       >
         <div className="container-wide px-4">
-          <div className="grid lg:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
+          <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center max-w-6xl mx-auto">
             <div>
-              <p className="text-amber-300 uppercase tracking-wider text-sm font-medium">
+              <p className="text-amber-300 uppercase tracking-wider text-xs sm:text-sm font-medium">
                 Plan Your Trip
               </p>
               <h2
                 id="getting-here-heading"
-                className="mt-2 text-3xl sm:text-4xl font-bold"
+                className="mt-2 text-2xl sm:text-3xl md:text-4xl font-bold"
                 style={{ fontFamily: 'var(--font-playfair), serif' }}
               >
                 Getting Here
               </h2>
-              <p className="mt-4 text-teal-100 leading-relaxed">
+              <p className="mt-3 sm:mt-4 text-sm sm:text-base text-teal-100 leading-relaxed">
                 Palms Resort & Beach is at 4126, Christiansted, St Croix 00820,
                 U.S. Virgin Islands. Fly into Henry E. Rohlsen Airport (STX) or
                 arrive by ferry from Puerto Rico. We&apos;re a short drive from the
                 airport and ferry terminal.
               </p>
-              <p className="mt-4 text-teal-100">
+              <p className="mt-3 sm:mt-4 text-sm sm:text-base text-teal-100">
                 Search &quot;Palms Resort & Beach St. Croix&quot; or the address above in
                 Google Maps or your preferred app for turn-by-turn directions.
               </p>
-              <div className="mt-6 flex flex-wrap gap-4">
+              <div className="mt-4 sm:mt-6 flex flex-wrap gap-3 sm:gap-4">
                 <a
                   href={MAPS_URL}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 rounded-lg bg-white/10 px-4 py-2.5 font-medium text-white hover:bg-white/20 transition"
+                  className="min-h-[44px] inline-flex items-center gap-2 rounded-lg bg-white/10 px-4 py-2.5 font-medium text-white hover:bg-white/20 transition"
                 >
                   <span aria-hidden>📍</span> Open in Maps
                 </a>
                 <Link
                   href="/contact"
-                  className="inline-flex items-center gap-2 rounded-lg border border-white/50 px-4 py-2.5 font-medium text-white hover:bg-white/10 transition"
+                  className="min-h-[44px] inline-flex items-center gap-2 rounded-lg border border-white/50 px-4 py-2.5 font-medium text-white hover:bg-white/10 transition"
                 >
                   Directions & Contact →
                 </Link>
               </div>
             </div>
-            <div className="relative rounded-2xl overflow-hidden border border-teal-700 aspect-[4/3] min-h-[240px] bg-teal-800">
+            <div className="relative rounded-xl sm:rounded-2xl overflow-hidden border border-teal-700 aspect-[4/3] min-h-[220px] sm:min-h-[240px] bg-teal-800">
               <iframe
                 title="Palms Resort & Beach on Google Maps"
                 src="https://www.google.com/maps?q=17.76191,-64.73084&z=16&output=embed"
@@ -499,7 +499,7 @@ export default function HomePage() {
           <p className="mt-8 text-center">
             <Link
               href="/contact"
-              className="inline-block rounded-lg bg-teal-700 px-8 py-3.5 font-semibold text-white hover:bg-teal-600 transition focus:outline-none focus:ring-2 focus:ring-teal-500 focus:ring-offset-2"
+              className="inline-flex items-center justify-center min-h-[44px] rounded-lg bg-teal-700 px-6 sm:px-8 py-3 sm:py-3.5 font-semibold text-white hover:bg-teal-600 transition focus:outline-none focus:ring-2 focus:ring-teal-500 focus:ring-offset-2"
             >
               Inquire About Your Event →
             </Link>
@@ -654,7 +654,7 @@ export default function HomePage() {
           <form
             action="#"
             method="post"
-            className="mt-8 flex flex-col sm:flex-row gap-3 max-w-md mx-auto"
+            className="mt-6 sm:mt-8 flex flex-col sm:flex-row gap-3 max-w-md mx-auto"
             aria-label="Newsletter signup"
           >
             <label htmlFor="newsletter-email" className="sr-only">
@@ -666,11 +666,11 @@ export default function HomePage() {
               name="email"
               placeholder="Your email"
               required
-              className="flex-1 min-w-0 rounded-lg border border-teal-600 bg-teal-900/50 px-4 py-3 text-white placeholder-teal-400 focus:border-amber-500 focus:outline-none focus:ring-2 focus:ring-amber-500/50"
+              className="flex-1 min-w-0 min-h-[44px] rounded-lg border border-teal-600 bg-teal-900/50 px-4 py-3 text-white placeholder-teal-400 focus:border-amber-500 focus:outline-none focus:ring-2 focus:ring-amber-500/50 text-base"
             />
             <button
               type="submit"
-              className="rounded-lg bg-amber-500 px-6 py-3 font-semibold text-gray-900 hover:bg-amber-400 transition focus:outline-none focus:ring-2 focus:ring-amber-500 focus:ring-offset-2 focus:ring-offset-teal-800"
+              className="min-h-[44px] rounded-lg bg-amber-500 px-6 py-3 font-semibold text-gray-900 hover:bg-amber-400 transition focus:outline-none focus:ring-2 focus:ring-amber-500 focus:ring-offset-2 focus:ring-offset-teal-800"
             >
               Subscribe
             </button>
@@ -741,22 +741,22 @@ export default function HomePage() {
       {/* 13. CTA banner */}
       <section
         aria-labelledby="cta-heading"
-        className="relative min-h-[60vh] flex flex-col justify-center items-center text-center bg-teal-900"
+        className="relative min-h-[50vh] sm:min-h-[60vh] flex flex-col justify-center items-center text-center bg-teal-900"
       >
         <div
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{ backgroundImage: `url(${CTA_IMAGE})` }}
         />
         <div className="absolute inset-0 bg-teal-900/75" />
-        <div className="relative z-10 px-4 py-20 max-w-2xl">
+        <div className="relative z-10 px-4 py-16 sm:py-20 max-w-2xl">
           <h2
             id="cta-heading"
-            className="text-3xl sm:text-4xl font-bold text-white"
+            className="text-2xl sm:text-3xl md:text-4xl font-bold text-white"
             style={{ fontFamily: 'var(--font-playfair), serif' }}
           >
             Ready to Escape?
           </h2>
-          <p className="mt-4 text-lg text-white/95">
+          <p className="mt-3 sm:mt-4 text-base sm:text-lg text-white/95">
             Book your stay at Palms Resort & Beach and discover what island life
             is truly all about. Book direct for availability.
           </p>
@@ -764,7 +764,7 @@ export default function HomePage() {
             href={BOOKING_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="mt-8 inline-block rounded-lg bg-amber-500 px-8 py-3.5 text-base font-semibold text-gray-900 shadow-lg transition hover:bg-amber-400 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:ring-offset-2 focus:ring-offset-teal-900"
+            className="mt-6 sm:mt-8 inline-flex items-center justify-center min-h-[44px] rounded-lg bg-amber-500 px-6 sm:px-8 py-3 sm:py-3.5 text-base font-semibold text-gray-900 shadow-lg transition hover:bg-amber-400 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:ring-offset-2 focus:ring-offset-teal-900"
           >
             Reserve Your Room Today
           </a>

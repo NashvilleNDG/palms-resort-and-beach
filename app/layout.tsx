@@ -1,4 +1,4 @@
-import type { Metadata } from 'next';
+import type { Metadata, Viewport } from 'next';
 import { Playfair_Display, Lato } from 'next/font/google';
 import './globals.css';
 import { SiteLayout } from '@/components/SiteLayout';
@@ -15,6 +15,13 @@ const lato = Lato({
   variable: '--font-lato',
   display: 'swap',
 });
+
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 5,
+  themeColor: '#0f766e',
+};
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://palmsresortandbeach.com'),

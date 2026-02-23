@@ -17,16 +17,16 @@ export const metadata: Metadata = {
 export default function ContactPage() {
   return (
     <>
-      <section className="relative py-24 bg-teal-900 text-center">
+      <section className="relative py-16 sm:py-24 bg-teal-900 text-center">
         <div className="absolute inset-0 bg-gradient-to-b from-teal-800 to-teal-900" />
         <div className="relative z-10 container-narrow px-4">
           <h1
-            className="text-4xl sm:text-5xl font-bold text-white"
+            className="text-3xl sm:text-4xl md:text-5xl font-bold text-white"
             style={{ fontFamily: 'var(--font-playfair), serif' }}
           >
             Contact
           </h1>
-          <p className="mt-6 text-lg text-teal-100 max-w-2xl mx-auto">
+          <p className="mt-4 sm:mt-6 text-base sm:text-lg text-teal-100 max-w-2xl mx-auto">
             Get in touch or book your stay at Palms Resort & Beach. We are
             here to help plan your St. Croix escape.
           </p>
@@ -35,11 +35,11 @@ export default function ContactPage() {
 
       <section aria-labelledby="contact-info-heading" className="section-padding bg-stone-50">
         <div className="container-wide px-4">
-          <div className="grid lg:grid-cols-2 gap-12">
+          <div className="grid lg:grid-cols-2 gap-8 lg:gap-12">
             <div>
               <h2
                 id="contact-info-heading"
-                className="text-2xl font-bold text-gray-800"
+                className="text-xl sm:text-2xl font-bold text-gray-800"
                 style={{ fontFamily: 'var(--font-playfair), serif' }}
               >
                 Palms Resort & Beach
@@ -64,7 +64,7 @@ export default function ContactPage() {
 
             <div>
               <h2
-                className="text-2xl font-bold text-gray-800"
+                className="text-xl sm:text-2xl font-bold text-gray-800"
                 style={{ fontFamily: 'var(--font-playfair), serif' }}
               >
                 Book Your Stay
@@ -77,7 +77,7 @@ export default function ContactPage() {
                 href={BOOKING_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="mt-6 inline-block rounded-md bg-amber-500 px-8 py-3 font-medium text-gray-900 transition hover:bg-amber-400 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:ring-offset-2"
+                className="mt-6 inline-flex items-center justify-center min-h-[44px] rounded-md bg-amber-500 px-6 sm:px-8 py-3 font-medium text-gray-900 transition hover:bg-amber-400 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:ring-offset-2"
               >
                 Reserve Your Room Today →
               </a>

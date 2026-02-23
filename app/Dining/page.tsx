@@ -16,19 +16,19 @@ export const metadata: Metadata = {
 export default function DiningPage() {
   return (
     <>
-      <section className="relative py-24 bg-teal-900 text-center">
+      <section className="relative py-16 sm:py-24 bg-teal-900 text-center">
         <div className="absolute inset-0 bg-gradient-to-b from-teal-800 to-teal-900" />
         <div className="relative z-10 container-narrow px-4">
-          <p className="text-amber-300 uppercase tracking-widest text-sm font-medium">
+          <p className="text-amber-300 uppercase tracking-widest text-xs sm:text-sm font-medium">
             Food, Drinks & Entertainment
           </p>
           <h1
-            className="mt-2 text-4xl sm:text-5xl font-bold text-white"
+            className="mt-2 text-3xl sm:text-4xl md:text-5xl font-bold text-white"
             style={{ fontFamily: 'var(--font-playfair), serif' }}
           >
             Dining & Nightlife
           </h1>
-          <p className="mt-6 text-lg text-teal-100 max-w-2xl mx-auto">
+          <p className="mt-4 sm:mt-6 text-base sm:text-lg text-teal-100 max-w-2xl mx-auto">
             From Sunday brunch to live fire dancers on Saturday nights — there
             is always something happening at Palms Resort & Beach.
           </p>
@@ -37,8 +37,8 @@ export default function DiningPage() {
 
       <section aria-labelledby="restaurant-heading" className="section-padding bg-stone-50">
         <div className="container-wide px-4">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div className="relative h-80 rounded-2xl overflow-hidden">
+          <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+            <div className="relative h-64 sm:h-72 lg:h-80 rounded-xl sm:rounded-2xl overflow-hidden">
               <Image
                 src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=800&q=80"
                 alt="Restaurant at Palms Resort & Beach"
@@ -50,7 +50,7 @@ export default function DiningPage() {
             <div>
               <h2
                 id="restaurant-heading"
-                className="text-2xl font-bold text-gray-800"
+                className="text-xl sm:text-2xl font-bold text-gray-800"
                 style={{ fontFamily: 'var(--font-playfair), serif' }}
               >
                 On-Site Restaurant
@@ -67,11 +67,11 @@ export default function DiningPage() {
 
       <section aria-labelledby="bar-heading" className="section-padding bg-white">
         <div className="container-wide px-4">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
+          <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
             <div className="order-2 lg:order-1">
               <h2
                 id="bar-heading"
-                className="text-2xl font-bold text-gray-800"
+                className="text-xl sm:text-2xl font-bold text-gray-800"
                 style={{ fontFamily: 'var(--font-playfair), serif' }}
               >
                 Beach Bar
@@ -81,7 +81,7 @@ export default function DiningPage() {
                 sunset cocktail or a cool refreshment after a swim. Open daily.
               </p>
             </div>
-            <div className="relative h-80 rounded-2xl overflow-hidden order-1 lg:order-2">
+            <div className="relative h-64 sm:h-72 lg:h-80 rounded-xl sm:rounded-2xl overflow-hidden order-1 lg:order-2">
               <Image
                 src="https://images.unsplash.com/photo-1514933651103-005eec06c04b?w=800&q=80"
                 alt="Beach bar"
@@ -107,33 +107,33 @@ export default function DiningPage() {
             Live music, entertainment, and special events. Schedules may vary by
             season.
           </p>
-          <ul className="mt-8 max-w-md mx-auto space-y-3 text-gray-700" role="list">
-            <li className="flex justify-between rounded-lg bg-white px-4 py-3 shadow-sm">
-              <span>Monday</span>
+          <ul className="mt-6 sm:mt-8 max-w-md mx-auto space-y-3 text-gray-700" role="list">
+            <li className="flex flex-col sm:flex-row sm:justify-between gap-1 rounded-lg bg-white px-4 py-3 shadow-sm text-sm sm:text-base">
+              <span className="font-medium">Monday</span>
               <span>Illusionist</span>
             </li>
-            <li className="flex justify-between rounded-lg bg-white px-4 py-3 shadow-sm">
-              <span>Tuesday</span>
+            <li className="flex flex-col sm:flex-row sm:justify-between gap-1 rounded-lg bg-white px-4 py-3 shadow-sm text-sm sm:text-base">
+              <span className="font-medium">Tuesday</span>
               <span>Bingo</span>
             </li>
-            <li className="flex justify-between rounded-lg bg-white px-4 py-3 shadow-sm">
-              <span>Wednesday</span>
+            <li className="flex flex-col sm:flex-row sm:justify-between gap-1 rounded-lg bg-white px-4 py-3 shadow-sm text-sm sm:text-base">
+              <span className="font-medium">Wednesday</span>
               <span>Live Music</span>
             </li>
-            <li className="flex justify-between rounded-lg bg-white px-4 py-3 shadow-sm">
-              <span>Thursday</span>
+            <li className="flex flex-col sm:flex-row sm:justify-between gap-1 rounded-lg bg-white px-4 py-3 shadow-sm text-sm sm:text-base">
+              <span className="font-medium">Thursday</span>
               <span>Trivia</span>
             </li>
-            <li className="flex justify-between rounded-lg bg-white px-4 py-3 shadow-sm">
-              <span>Friday</span>
+            <li className="flex flex-col sm:flex-row sm:justify-between gap-1 rounded-lg bg-white px-4 py-3 shadow-sm text-sm sm:text-base">
+              <span className="font-medium">Friday</span>
               <span>Live Music</span>
             </li>
-            <li className="flex justify-between rounded-lg bg-white px-4 py-3 shadow-sm">
-              <span>Saturday</span>
+            <li className="flex flex-col sm:flex-row sm:justify-between gap-1 rounded-lg bg-white px-4 py-3 shadow-sm text-sm sm:text-base">
+              <span className="font-medium">Saturday</span>
               <span>Fire Dancers</span>
             </li>
-            <li className="flex justify-between rounded-lg bg-white px-4 py-3 shadow-sm">
-              <span>Sunday</span>
+            <li className="flex flex-col sm:flex-row sm:justify-between gap-1 rounded-lg bg-white px-4 py-3 shadow-sm text-sm sm:text-base">
+              <span className="font-medium">Sunday</span>
               <span>Brunch</span>
             </li>
           </ul>
@@ -150,7 +150,7 @@ export default function DiningPage() {
             href={BOOKING_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="mt-6 inline-block rounded-md bg-amber-500 px-8 py-3 font-medium text-gray-900 transition hover:bg-amber-400 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:ring-offset-2 focus:ring-offset-teal-800"
+            className="mt-6 inline-flex items-center justify-center min-h-[44px] rounded-md bg-amber-500 px-6 sm:px-8 py-3 font-medium text-gray-900 transition hover:bg-amber-400 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:ring-offset-2 focus:ring-offset-teal-800"
           >
             Reserve Your Room
           </a>

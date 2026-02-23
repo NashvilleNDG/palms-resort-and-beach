@@ -39,7 +39,7 @@ export function ResortCarousel({ images }: { images: CarouselImage[] }) {
         >
           Take a Look Around
         </h2>
-        <div className="mt-8 rounded-2xl overflow-hidden shadow-2xl relative aspect-video max-w-5xl mx-auto">
+        <div className="mt-6 sm:mt-8 rounded-2xl overflow-hidden shadow-2xl relative aspect-video max-w-5xl mx-auto">
           <Link href="/Gallery" className="block relative h-full">
             {images.map((img, i) => (
               <div
@@ -58,8 +58,8 @@ export function ResortCarousel({ images }: { images: CarouselImage[] }) {
                 />
               </div>
             ))}
-            <div className="absolute inset-0 flex flex-col items-center justify-end p-8 sm:p-12 text-center pointer-events-none">
-              <span className="mt-4 inline-flex items-center gap-2 rounded-lg bg-amber-500 px-6 py-2.5 font-semibold text-gray-900 pointer-events-auto">
+            <div className="absolute inset-0 flex flex-col items-center justify-end p-4 sm:p-8 md:p-12 text-center pointer-events-none">
+              <span className="mt-4 inline-flex items-center justify-center min-h-[44px] gap-2 rounded-lg bg-amber-500 px-5 py-2.5 sm:px-6 font-semibold text-gray-900 pointer-events-auto">
                 View Gallery →
               </span>
             </div>
@@ -74,10 +74,10 @@ export function ResortCarousel({ images }: { images: CarouselImage[] }) {
                   e.preventDefault();
                   prev();
                 }}
-                className="absolute left-3 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full bg-black/50 text-white flex items-center justify-center hover:bg-black/70 transition pointer-events-auto"
+                className="absolute left-2 sm:left-3 top-1/2 -translate-y-1/2 z-10 w-11 h-11 sm:w-10 sm:h-10 rounded-full bg-black/50 text-white flex items-center justify-center hover:bg-black/70 active:bg-black/80 transition pointer-events-auto min-w-[44px] min-h-[44px]"
                 aria-label="Previous slide"
               >
-                <span aria-hidden>‹</span>
+                <span className="text-2xl sm:text-xl leading-none" aria-hidden>‹</span>
               </button>
               <button
                 type="button"
@@ -85,12 +85,12 @@ export function ResortCarousel({ images }: { images: CarouselImage[] }) {
                   e.preventDefault();
                   next();
                 }}
-                className="absolute right-3 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full bg-black/50 text-white flex items-center justify-center hover:bg-black/70 transition pointer-events-auto"
+                className="absolute right-2 sm:right-3 top-1/2 -translate-y-1/2 z-10 w-11 h-11 sm:w-10 sm:h-10 rounded-full bg-black/50 text-white flex items-center justify-center hover:bg-black/70 active:bg-black/80 transition pointer-events-auto min-w-[44px] min-h-[44px]"
                 aria-label="Next slide"
               >
-                <span aria-hidden>›</span>
+                <span className="text-2xl sm:text-xl leading-none" aria-hidden>›</span>
               </button>
-              <div className="absolute bottom-4 left-1/2 -translate-x-1/2 z-10 flex gap-2 pointer-events-auto">
+              <div className="absolute bottom-3 sm:bottom-4 left-1/2 -translate-x-1/2 z-10 flex gap-2 pointer-events-auto">
                 {images.map((_, i) => (
                   <button
                     key={i}
@@ -99,7 +99,7 @@ export function ResortCarousel({ images }: { images: CarouselImage[] }) {
                       e.preventDefault();
                       goTo(i);
                     }}
-                    className={`w-2.5 h-2.5 rounded-full transition ${
+                    className={`min-w-[12px] min-h-[12px] w-3 h-3 rounded-full transition touch-manipulation ${
                       i === index ? 'bg-amber-500 scale-110' : 'bg-white/70 hover:bg-white'
                     }`}
                     aria-label={`Go to slide ${i + 1}`}

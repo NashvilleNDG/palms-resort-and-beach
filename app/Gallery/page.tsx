@@ -26,16 +26,16 @@ const galleryImages = [
 export default function GalleryPage() {
   return (
     <>
-      <section className="relative py-24 bg-teal-900 text-center">
+      <section className="relative py-16 sm:py-24 bg-teal-900 text-center">
         <div className="absolute inset-0 bg-gradient-to-b from-teal-800 to-teal-900" />
         <div className="relative z-10 container-narrow px-4">
           <h1
-            className="text-4xl sm:text-5xl font-bold text-white"
+            className="text-3xl sm:text-4xl md:text-5xl font-bold text-white"
             style={{ fontFamily: 'var(--font-playfair), serif' }}
           >
             Gallery
           </h1>
-          <p className="mt-6 text-lg text-teal-100 max-w-2xl mx-auto">
+          <p className="mt-4 sm:mt-6 text-base sm:text-lg text-teal-100 max-w-2xl mx-auto">
             A glimpse of Palms Resort & Beach, our mile-long beach, rooms, pool,
             and the beauty of St. Croix.
           </p>
@@ -44,7 +44,7 @@ export default function GalleryPage() {
 
       <section aria-label="Photo gallery" className="section-padding bg-stone-50">
         <div className="container-wide px-4">
-          <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6" role="list">
+          <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6" role="list">
             {galleryImages.map(({ src, alt }) => (
               <li key={src} className="rounded-2xl overflow-hidden shadow-lg">
                 <div className="relative aspect-[4/3]">

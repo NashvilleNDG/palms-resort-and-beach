@@ -2,13 +2,20 @@
 @tailwind components;
 @tailwind utilities;
 
+html {
+  @apply scroll-smooth;
+  -webkit-tap-highlight-color: transparent;
+}
+
 body {
-  @apply bg-stone-50 text-gray-800 antialiased;
+  @apply bg-stone-50 text-gray-800 antialiased overflow-x-hidden;
+  padding-left: env(safe-area-inset-left);
+  padding-right: env(safe-area-inset-right);
 }
 
 @layer components {
   .section-padding {
-    @apply px-4 py-16 sm:px-6 lg:px-8 lg:py-24;
+    @apply px-4 py-12 sm:px-6 sm:py-16 lg:px-8 lg:py-24;
   }
   .container-narrow {
     @apply mx-auto max-w-5xl;
@@ -21,5 +28,9 @@ body {
   }
   .section-title {
     font-family: var(--font-playfair), Georgia, serif;
+  }
+  /* Minimum touch target for tap/click (accessibility) */
+  .touch-target {
+    @apply min-h-[44px] min-w-[44px];
   }
 }
