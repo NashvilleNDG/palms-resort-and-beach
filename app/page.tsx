@@ -9,8 +9,7 @@ const PHONE = '340-718-8920';
 const PHONE_TEL = 'tel:3407188920';
 const HERO_IMAGE =
   'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1920&q=85';
-const CTA_IMAGE =
-  'https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?w=1920&q=85';
+const CTA_IMAGE = '/images/swimming-pool.jpg';
 const BASE_URL = 'https://palmsresortstcroix.com';
 
 // SEO: JSON-LD Hotel + FAQ schema
@@ -112,7 +111,7 @@ export default function HomePage() {
       {/* 1. Hero — modern, clear value */}
       <section
         aria-label="Welcome to Palms Resort & Beach"
-        className="relative min-h-[100vh] flex flex-col justify-center items-center text-center bg-gray-900"
+        className="relative min-h-[85vh] flex flex-col justify-center items-center text-center bg-gray-900"
       >
         <div
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
@@ -425,28 +424,86 @@ export default function HomePage() {
         aria-labelledby="weddings-heading"
         className="section-padding bg-stone-50"
       >
-        <div className="container-narrow px-4 text-center">
-          <p className="text-teal-600 uppercase tracking-wider text-sm font-medium">
+        <div className="container-wide px-4">
+          <p className="text-teal-600 uppercase tracking-wider text-sm font-medium text-center">
             Celebrate With Us
           </p>
           <h2
             id="weddings-heading"
-            className="mt-2 text-3xl sm:text-4xl font-bold text-gray-800"
+            className="mt-2 text-3xl sm:text-4xl font-bold text-gray-800 text-center"
             style={{ fontFamily: 'var(--font-playfair), serif' }}
           >
             Weddings & Events
           </h2>
-          <p className="mt-6 text-gray-700 leading-relaxed max-w-2xl mx-auto">
+          <div className="mt-10 grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-4xl mx-auto">
+            <div className="relative aspect-[4/3] rounded-xl overflow-hidden shadow-lg">
+              <Image
+                src="https://images.unsplash.com/photo-1519741497674-611481863552?w=600&q=80"
+                alt="Beach wedding ceremony at Palms Resort & Beach"
+                fill
+                className="object-cover"
+                sizes="(max-width: 640px) 100vw, 33vw"
+              />
+            </div>
+            <div className="relative aspect-[4/3] rounded-xl overflow-hidden shadow-lg">
+              <Image
+                src="https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?w=600&q=80"
+                alt="Wedding reception and dining at Palms Resort & Beach"
+                fill
+                className="object-cover"
+                sizes="(max-width: 640px) 100vw, 33vw"
+              />
+            </div>
+            <div className="relative aspect-[4/3] rounded-xl overflow-hidden shadow-lg">
+              <Image
+                src="https://images.unsplash.com/photo-1523438885200-e635ba2c371e?w=600&q=80"
+                alt="Beach event and gathering at Palms Resort & Beach"
+                fill
+                className="object-cover"
+                sizes="(max-width: 640px) 100vw, 33vw"
+              />
+            </div>
+            <div className="relative aspect-[4/3] rounded-xl overflow-hidden shadow-lg">
+              <Image
+                src="https://images.unsplash.com/photo-1591604466107-ec97de577aff?w=600&q=80"
+                alt="Beach wedding setup and decor at Palms Resort & Beach"
+                fill
+                className="object-cover"
+                sizes="(max-width: 640px) 100vw, 33vw"
+              />
+            </div>
+            <div className="relative aspect-[4/3] rounded-xl overflow-hidden shadow-lg">
+              <Image
+                src="/images/event.jpg"
+                alt="Resort event and entertainment at Palms Resort & Beach"
+                fill
+                className="object-cover"
+                sizes="(max-width: 640px) 100vw, 33vw"
+              />
+            </div>
+            <div className="relative aspect-[4/3] rounded-xl overflow-hidden shadow-lg">
+              <Image
+                src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?w=600&q=80"
+                alt="Wedding celebration and party at Palms Resort & Beach"
+                fill
+                className="object-cover"
+                sizes="(max-width: 640px) 100vw, 33vw"
+              />
+            </div>
+          </div>
+          <p className="mt-10 text-gray-700 leading-relaxed max-w-2xl mx-auto text-center">
             Say &ldquo;I do&rdquo; on our mile-long beach or host your next gathering at
             Palms Resort & Beach. From intimate weddings to group retreats, we offer
             a stunning Caribbean backdrop and on-site catering and coordination support.
           </p>
-          <Link
-            href="/contact"
-            className="mt-8 inline-block rounded-lg bg-teal-700 px-8 py-3.5 font-semibold text-white hover:bg-teal-600 transition focus:outline-none focus:ring-2 focus:ring-teal-500 focus:ring-offset-2"
-          >
-            Inquire About Your Event →
-          </Link>
+          <p className="mt-8 text-center">
+            <Link
+              href="/contact"
+              className="inline-block rounded-lg bg-teal-700 px-8 py-3.5 font-semibold text-white hover:bg-teal-600 transition focus:outline-none focus:ring-2 focus:ring-teal-500 focus:ring-offset-2"
+            >
+              Inquire About Your Event →
+            </Link>
+          </p>
         </div>
       </section>
 
@@ -469,26 +526,21 @@ export default function HomePage() {
           <div className="mt-12 grid gap-8 md:grid-cols-2 lg:grid-cols-3 max-w-6xl mx-auto">
             <blockquote className="rounded-xl bg-teal-800/80 p-6 text-left border border-teal-700">
               <p className="text-teal-50 italic">
-                &ldquo;The beach is incredible — we never wanted to leave. The room was
-                spotless and the staff went above and beyond. Already planning our
-                next trip.&rdquo;
+                &ldquo;Staff was very courteous breakfast was excellent rooms were clean and neat hotel overall was very inviting and a great experience.&rdquo;
               </p>
-              <footer className="mt-4 text-amber-300 font-semibold">— Sarah M., Florida</footer>
+              <footer className="mt-4 text-amber-300 font-semibold">— Karen</footer>
             </blockquote>
             <blockquote className="rounded-xl bg-teal-800/80 p-6 text-left border border-teal-700">
               <p className="text-teal-50 italic">
-                &ldquo;Perfect for families. The pool was a hit with the kids, and
-                we loved the nightly entertainment. Dinner with an ocean view every
-                night was magical.&rdquo;
+                &ldquo;The place was good location and was right on the beach rooms where nice for the price will stay there again.&rdquo;
               </p>
-              <footer className="mt-4 text-amber-300 font-semibold">— James &amp; Lisa T., New York</footer>
+              <footer className="mt-4 text-amber-300 font-semibold">— Richard</footer>
             </blockquote>
             <blockquote className="rounded-xl bg-teal-800/80 p-6 text-left border border-teal-700">
               <p className="text-teal-50 italic">
-                &ldquo;Best beachfront resort on St. Croix. Snorkeling right off the
-                beach, great food, and the fire dancers on Saturday were amazing.&rdquo;
+                &ldquo;Room was clean, staff was wonderful, balcony was good. Did stop in for breakfast.&rdquo;
               </p>
-              <footer className="mt-4 text-amber-300 font-semibold">— Mike R., Texas</footer>
+              <footer className="mt-4 text-amber-300 font-semibold">— Bevern</footer>
             </blockquote>
           </div>
         </div>
