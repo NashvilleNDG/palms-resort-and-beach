@@ -2,6 +2,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import type { Metadata } from 'next';
 import { ResortCarousel } from '@/components/ResortCarousel';
+import { NewsletterForm } from '@/components/NewsletterForm';
 
 const MAPS_URL = 'https://maps.app.goo.gl/hyfj8NW5GkjBXpL67';
 const BOOKING_URL = 'https://hotels.cloudbeds.com/en/reservation/DRaDzt?currency=usd';
@@ -637,7 +638,6 @@ export default function HomePage() {
       </section>
 
       {/* 11. Newsletter / Stay in touch */}
-      {/* Form action="#" — connect to your newsletter provider (e.g. Mailchimp, ConvertKit) or add a serverless endpoint */}
       <section
         aria-labelledby="newsletter-heading"
         className="section-padding bg-teal-800 text-white"
@@ -657,30 +657,7 @@ export default function HomePage() {
             Join our list for updates, seasonal offers, and ideas for your next
             St. Croix escape. No spam — just island inspiration.
           </p>
-          <form
-            action="#"
-            method="post"
-            className="mt-6 sm:mt-8 flex flex-col sm:flex-row gap-3 max-w-md mx-auto"
-            aria-label="Newsletter signup"
-          >
-            <label htmlFor="newsletter-email" className="sr-only">
-              Email address
-            </label>
-            <input
-              id="newsletter-email"
-              type="email"
-              name="email"
-              placeholder="Your email"
-              required
-              className="flex-1 min-w-0 min-h-[44px] rounded-lg border border-teal-600 bg-teal-900/50 px-4 py-3 text-white placeholder-teal-400 focus:border-amber-500 focus:outline-none focus:ring-2 focus:ring-amber-500/50 text-base"
-            />
-            <button
-              type="submit"
-              className="min-h-[44px] rounded-lg bg-amber-500 px-6 py-3 font-semibold text-gray-900 hover:bg-amber-400 transition focus:outline-none focus:ring-2 focus:ring-amber-500 focus:ring-offset-2 focus:ring-offset-teal-800"
-            >
-              Subscribe
-            </button>
-          </form>
+          <NewsletterForm />
           <p className="mt-4 text-sm text-teal-300">
             You can unsubscribe at any time.
           </p>

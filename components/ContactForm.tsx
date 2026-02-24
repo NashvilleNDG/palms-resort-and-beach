@@ -2,8 +2,8 @@
 
 import { useState } from 'react';
 
-const WEB3FORMS_ACCESS_KEY = process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY || '';
-const INQUIRY_EMAIL = 'office@pristineresortandbeach.com';
+const WEB3FORMS_ACCESS_KEY = process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY || 'd11c7aec-6dbf-4c0e-879c-4db0c0fdcfe6';
+const INQUIRY_EMAIL = 'office@palmsresortandbeach.com';
 const WEB3FORMS_ENDPOINT = 'https://api.web3forms.com/submit';
 
 export function ContactForm() {

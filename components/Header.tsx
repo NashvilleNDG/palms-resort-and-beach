@@ -40,7 +40,7 @@ export function Header() {
 
   return (
     <header className="sticky top-0 z-50 bg-white shadow-sm">
-      <div className="container-wide flex items-center gap-4 px-4 py-3 lg:py-4">
+      <div className="container-wide flex items-center gap-4 px-4 py-3 lg:py-4 lg:justify-center">
         <div className="flex-1 min-w-0 lg:hidden" aria-hidden />
         <Link
           href="/"
