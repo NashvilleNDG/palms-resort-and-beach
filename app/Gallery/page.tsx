@@ -1,11 +1,13 @@
 import type { Metadata } from 'next';
 import { GalleryLightbox } from '@/components/GalleryLightbox';
 import { OptimizedBackgroundImage } from '@/components/OptimizedImage';
+import { BASE_URL } from '@/lib/site';
 
 export const metadata: Metadata = {
   title: 'Gallery',
   description:
     'Photos of Palms Resort & Beach, St. Croix: beach, rooms, pool, dining, and Caribbean views.',
+  alternates: { canonical: `${BASE_URL}/Gallery` },
   openGraph: {
     title: 'Gallery | Palms Resort & Beach',
     description: 'See the resort, beach, rooms, and activities in our gallery.',

@@ -1,13 +1,15 @@
 import type { Metadata } from 'next';
 import Image from 'next/image';
 import { OptimizedImage, OptimizedBackgroundImage } from '@/components/OptimizedImage';
+import { BASE_URL } from '@/lib/site';
 
 const BOOKING_URL = 'https://hotels.cloudbeds.com/en/reservation/DRaDzt?currency=usd';
 
 export const metadata: Metadata = {
   title: 'Beach & Activities',
   description:
-    'Mile-long palm-lined beach, freshwater pool, snorkeling, kayaking, turtle watch, and more at Palms Resort & Beach, St. Croix.',
+    'Mile-long beach, pool, snorkeling, kayaking, turtle watch at Palms Resort & Beach, St. Croix.',
+  alternates: { canonical: `${BASE_URL}/BeachActivities` },
   openGraph: {
     title: 'Beach & Activities | Palms Resort & Beach',
     description: 'Beach, pool, water sports, and weekly activities on St. Croix.',

@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import { OptimizedImage, OptimizedBackgroundImage } from '@/components/OptimizedImage';
+import { BASE_URL } from '@/lib/site';
 
 const BOOKING_URL = 'https://hotels.cloudbeds.com/en/reservation/DRaDzt?currency=usd';
 
@@ -7,6 +8,7 @@ export const metadata: Metadata = {
   title: 'Accommodations',
   description:
     '45 beachfront rooms at Palms Resort & Beach, St. Croix. Ocean/garden view, ocean front, and suite. Book direct.',
+  alternates: { canonical: `${BASE_URL}/rooms` },
   openGraph: {
     title: 'Accommodations | Palms Resort & Beach',
     description: '45 beachfront rooms with private patios or balconies on St. Croix.',
@@ -92,7 +94,7 @@ export default function RoomsPage() {
                       <div className="relative h-56 sm:h-64 md:h-80 order-1 md:order-2">
                         <OptimizedImage
                           src={room.image}
-                          alt={room.name}
+                          alt={`${room.name} room at Palms Resort & Beach, St. Croix`}
                           fill
                           sizes="(max-width: 768px) 100vw, 50vw"
                         />
@@ -103,7 +105,7 @@ export default function RoomsPage() {
                       <div className="relative h-56 sm:h-64 md:h-80">
                         <OptimizedImage
                           src={room.image}
-                          alt={room.name}
+                          alt={`${room.name} room at Palms Resort & Beach, St. Croix`}
                           fill
                           sizes="(max-width: 768px) 100vw, 50vw"
                         />

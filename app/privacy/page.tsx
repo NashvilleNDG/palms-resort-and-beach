@@ -1,9 +1,11 @@
 import type { Metadata } from 'next';
+import { BASE_URL } from '@/lib/site';
 
 export const metadata: Metadata = {
   title: 'Privacy Policy',
   description:
     'Privacy Policy for Palms Resort & Beach, St. Croix. How we collect, use, and protect your information.',
+  alternates: { canonical: `${BASE_URL}/privacy` },
   openGraph: {
     title: 'Privacy Policy | Palms Resort & Beach',
     description: 'How we collect, use, and protect your information at Palms Resort & Beach.',

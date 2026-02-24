@@ -1,7 +1,5 @@
 import type { MetadataRoute } from 'next';
-
-const baseUrl =
-  process.env.NEXT_PUBLIC_BASE_URL ?? 'https://palmsresortandbeach.com';
+import { BASE_URL } from '@/lib/site';
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const routes = [
@@ -14,10 +12,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/privacy',
     '/terms',
   ];
-  return routes.map((path) => ({
-    url: path ? `${baseUrl}${path}` : baseUrl,
-    lastModified: new Date(),
-    changeFrequency: 'weekly' as const,
-    priority: path === '' ? 1 : 0.8,
-  }));
+  return routes.map((path) => {
+    const priority =
+      path === ''
+        ? 1
+        : path === '/privacy' || path === '/terms'
+          ? 0.5
+          : 0.8;
+    return {
+      url: path ? `${BASE_URL}${path}` : BASE_URL,
+      lastModified: new Date(),
+      changeFrequency: 'weekly' as const,
+      priority,
+    };
+  });
 }

@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import Image from 'next/image';
 import { OptimizedBackgroundImage } from '@/components/OptimizedImage';
+import { BASE_URL } from '@/lib/site';
 
 const BOOKING_URL = 'https://hotels.cloudbeds.com/en/reservation/DRaDzt?currency=usd';
 const MENU_PDF = '/images/Palms%20menu%20card.pdf';
@@ -8,7 +9,8 @@ const MENU_PDF = '/images/Palms%20menu%20card.pdf';
 export const metadata: Metadata = {
   title: 'Dining & Nightlife',
   description:
-    'Restaurant, beach bar, Sunday brunch, and nightly entertainment at Palms Resort & Beach, St. Croix. Food, drinks, and live music.',
+    'Restaurant, beach bar, Sunday brunch, and nightly entertainment at Palms Resort & Beach, St. Croix.',
+  alternates: { canonical: `${BASE_URL}/Dining` },
   openGraph: {
     title: 'Dining & Nightlife | Palms Resort & Beach',
     description: 'Restaurant, beach bar, brunch, and nightly entertainment on St. Croix.',

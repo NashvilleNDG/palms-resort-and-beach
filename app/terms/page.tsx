@@ -1,9 +1,11 @@
 import type { Metadata } from 'next';
+import { BASE_URL } from '@/lib/site';
 
 export const metadata: Metadata = {
   title: 'Terms of Use',
   description:
-    'Terms of Use for Palms Resort & Beach website. Rules and guidelines for using our site and services.',
+    'Terms of Use for Palms Resort & Beach. Rules and guidelines for using our site and services.',
+  alternates: { canonical: `${BASE_URL}/terms` },
   openGraph: {
     title: 'Terms of Use | Palms Resort & Beach',
     description: 'Terms and conditions for using the Palms Resort & Beach website.',

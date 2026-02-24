@@ -4,6 +4,7 @@ import type { Metadata } from 'next';
 import { ResortCarousel } from '@/components/ResortCarousel';
 import { NewsletterForm } from '@/components/NewsletterForm';
 import { OptimizedImage, OptimizedBackgroundImage } from '@/components/OptimizedImage';
+import { BASE_URL } from '@/lib/site';
 
 const MAPS_URL = 'https://maps.app.goo.gl/hyfj8NW5GkjBXpL67';
 const BOOKING_URL = 'https://hotels.cloudbeds.com/en/reservation/DRaDzt?currency=usd';
@@ -12,7 +13,6 @@ const PHONE_TEL = 'tel:3407188920';
 const HERO_IMAGE = '/images/resort-img1.png';
 const HERO_IMAGE_DESKTOP = '/images/resort-img.png';
 const CTA_IMAGE = '/images/swimming-pool1.jpg';
-const BASE_URL = 'https://palmsresortandbeach.com';
 
 // SEO: JSON-LD Hotel + FAQ schema
 const hotelSchema = {
@@ -85,11 +85,19 @@ export const metadata: Metadata = {
   title: 'Palms Resort & Beach — St. Croix Beachfront Resort | USVI',
   description:
     'St. Croix\'s only resort with a mile-long private beach. 45 beachfront rooms, pool, restaurant, free snorkeling & kayaks. Book direct. 340-718-8920.',
+  alternates: { canonical: `${BASE_URL}/` },
   openGraph: {
     title: 'Palms Resort & Beach — St. Croix, U.S. Virgin Islands',
     description:
       'Beachfront resort on St. Croix: 45 rooms, mile-long beach, pool, dining, water sports. Book your Caribbean escape.',
     type: 'website',
+    images: [{ url: '/images/resort-img1.png', width: 1200, height: 630, alt: 'Palms Resort & Beach, St. Croix' }],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Palms Resort & Beach — St. Croix, U.S. Virgin Islands',
+    description: 'Beachfront resort on St. Croix: 45 rooms, mile-long beach, pool, dining, water sports.',
+    images: ['/images/resort-img1.png'],
   },
 };
 

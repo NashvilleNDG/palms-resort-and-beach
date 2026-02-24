@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { ContactForm } from '@/components/ContactForm';
 import { OptimizedBackgroundImage } from '@/components/OptimizedImage';
+import { BASE_URL } from '@/lib/site';
 
 const BOOKING_URL = 'https://hotels.cloudbeds.com/en/reservation/DRaDzt?currency=usd';
 const PHONE = 'tel:3407188920';
@@ -13,7 +14,8 @@ const HERO_IMAGE = '/images/resort-img4.png';
 export const metadata: Metadata = {
   title: 'Contact',
   description:
-    'Contact Palms Resort & Beach, St. Croix. 4126, Christiansted, St Croix 00820. Phone 340-718-8920. Email office@palmsresortandbeach.com. Book your stay online.',
+    'Contact Palms Resort & Beach, St. Croix. Address, phone 340-718-8920, email. Book your stay online.',
+  alternates: { canonical: `${BASE_URL}/contact` },
   openGraph: {
     title: 'Contact | Palms Resort & Beach',
     description: 'Get in touch or book your stay at Palms Resort & Beach, St. Croix.',

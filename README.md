@@ -43,7 +43,16 @@ Runs unit tests (Jest + React Testing Library). Use `npm run test:watch` for wat
 - **Publish directory**: `out` (the static export output)
 - No server or rewrites required; use any static host (Render, Vercel, Netlify, GitHub Pages, S3, etc.).
 
-Set `NEXT_PUBLIC_BASE_URL` to your production URL (e.g. `https://yoursite.com`) so the sitemap uses correct absolute URLs. Default is `https://palmsresortandbeach.com`.
+Set `NEXT_PUBLIC_BASE_URL` to your production URL (e.g. `https://yoursite.com`) so the sitemap and canonical URLs use correct absolute URLs. Default is `https://palmsresortandbeach.com`.
+
+## SEO & performance
+
+- **Canonical URLs**: Every page sets `alternates.canonical` to avoid duplicate-content issues.
+- **Open Graph & Twitter**: Default `og:image` and Twitter Card use `public/images/resort-img1.png`; home page overrides with the same image. Titles and descriptions are set per page.
+- **Meta descriptions**: Kept under ~155 characters for search snippets.
+- **Image SEO**: Key images use descriptive `alt` text; hero/CTA backgrounds are decorative (`aria-hidden`). Gallery and carousel images have descriptive alts.
+- **Sitemap**: `app/sitemap.ts` — home priority 1, main pages 0.8, privacy/terms 0.5.
+- **Core Web Vitals**: Hero uses `OptimizedImage`/`OptimizedBackgroundImage` with WebP + fallback; carousel first slide uses `priority`; fonts use `display: swap`; images below the fold load lazily.
 
 ## Project structure
 

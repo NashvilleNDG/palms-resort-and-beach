@@ -3,9 +3,14 @@ import Script from 'next/script';
 import { Playfair_Display, Lato } from 'next/font/google';
 import './globals.css';
 import { SiteLayout } from '@/components/SiteLayout';
+import { BASE_URL } from '@/lib/site';
 
 const GA_MEASUREMENT_ID = 'G-VHXKG7RS8Q';
 const GTM_ID = 'GTM-P4TH96VZ';
+const OG_IMAGE = '/images/resort-img1.png';
+const DEFAULT_OG_TITLE = 'Palms Resort & Beach — St. Croix, U.S. Virgin Islands';
+const DEFAULT_OG_DESCRIPTION =
+  'Escape to Palms Resort & Beach on St. Croix. 45 beachfront rooms, mile-long beach, pool, dining, and Caribbean sunshine.';
 
 const playfair = Playfair_Display({
   subsets: ['latin'],
@@ -28,7 +33,7 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://palmsresortandbeach.com'),
+  metadataBase: new URL(BASE_URL),
   title: {
     default: 'Palms Resort & Beach — St. Croix, U.S. Virgin Islands',
     template: '%s | Palms Resort & Beach',
@@ -47,10 +52,23 @@ export const metadata: Metadata = {
     'Caribbean',
   ],
   openGraph: {
-    title: 'Palms Resort & Beach — St. Croix, U.S. Virgin Islands',
-    description:
-      'Escape to Palms Resort & Beach on St. Croix. 45 beachfront rooms, mile-long beach, pool, dining, and Caribbean sunshine.',
+    title: DEFAULT_OG_TITLE,
+    description: DEFAULT_OG_DESCRIPTION,
     type: 'website',
+    images: [
+      {
+        url: OG_IMAGE,
+        width: 1200,
+        height: 630,
+        alt: 'Palms Resort & Beach — tropical resort with palm trees and ocean view, St. Croix',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: DEFAULT_OG_TITLE,
+    description: DEFAULT_OG_DESCRIPTION,
+    images: [OG_IMAGE],
   },
   robots: {
     index: true,
