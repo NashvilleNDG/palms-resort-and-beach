@@ -29,6 +29,14 @@ npm run build
 
 Static files are in the **`out/`** directory.
 
+## Test
+
+```bash
+npm run test
+```
+
+Runs unit tests (Jest + React Testing Library). Use `npm run test:watch` for watch mode and `npm run test:coverage` for coverage.
+
 ## Deploy
 
 - **Build command**: `npm run build`
@@ -41,11 +49,11 @@ Set `NEXT_PUBLIC_BASE_URL` to your production URL (e.g. `https://yoursite.com`) 
 
 - `app/layout.tsx` — Root layout, meta, Header/Footer
 - `app/page.tsx` — Homepage (hero, value props, features, CTAs)
-- `app/Rooms/page.tsx` — Accommodations
+- `app/rooms/page.tsx` — Accommodations
 - `app/BeachActivities/page.tsx` — Beach & Activities
 - `app/Dining/page.tsx` — Dining & Nightlife
 - `app/Gallery/page.tsx` — Gallery
-- `app/Contact/page.tsx` — Contact & booking
+- `app/contact/page.tsx` — Contact & booking
 - `app/sitemap.ts` — Sitemap for `/sitemap.xml`
 - `components/Header.tsx`, `components/Footer.tsx` — Shared layout (Server Components)
 - `public/robots.txt` — Crawler rules

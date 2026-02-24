@@ -19,7 +19,7 @@ export default function BeachActivitiesPage() {
       <section className="relative py-16 sm:py-24 min-h-[40vh] sm:min-h-[50vh] flex flex-col justify-center text-center bg-teal-900">
         <div
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-          style={{ backgroundImage: 'url(/images/swimming-pool.jpg)' }}
+          style={{ backgroundImage: 'url(/images/swimming-pool1.jpg)' }}
         />
         <div className="absolute inset-0 bg-gradient-to-b from-teal-900/80 via-teal-900/60 to-teal-900" />
         <div className="relative z-10 container-narrow px-4">

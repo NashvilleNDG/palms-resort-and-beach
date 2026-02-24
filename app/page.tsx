@@ -10,7 +10,7 @@ const PHONE = '340-718-8920';
 const PHONE_TEL = 'tel:3407188920';
 const HERO_IMAGE = '/images/resort-img1.png';
 const HERO_IMAGE_DESKTOP = '/images/resort-img.png';
-const CTA_IMAGE = '/images/swimming-pool.jpg';
+const CTA_IMAGE = '/images/swimming-pool1.jpg';
 const BASE_URL = 'https://palmsresortandbeach.com';
 
 // SEO: JSON-LD Hotel + FAQ schema

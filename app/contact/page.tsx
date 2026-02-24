@@ -6,7 +6,8 @@ const PHONE = 'tel:3407188920';
 const EMAIL = 'mailto:office@palmsresortandbeach.com';
 const LOCATION = '4126, Christiansted, St Croix 00820, U.S. Virgin Islands';
 const MAPS_URL = 'https://maps.app.goo.gl/hyfj8NW5GkjBXpL67';
-const MAP_EMBED_URL = 'https://www.google.com/maps?q=4126+Christiansted+St+Croix+00820+USVI&output=embed';
+const MAP_EMBED_URL = 'https://www.google.com/maps?q=17.76191,-64.73084&z=16&output=embed';
+const HERO_IMAGE = '/images/resort-img4.png';
 
 export const metadata: Metadata = {
   title: 'Contact',
@@ -21,16 +22,21 @@ export const metadata: Metadata = {
 export default function ContactPage() {
   return (
     <>
-      <section className="relative py-16 sm:py-24 bg-teal-900 text-center">
-        <div className="absolute inset-0 bg-gradient-to-b from-teal-800 to-teal-900" />
+      <section className="relative py-16 sm:py-24 bg-teal-900 text-center min-h-[40vh] flex flex-col justify-center">
+        <div
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+          style={{ backgroundImage: `url(${HERO_IMAGE})` }}
+          aria-hidden
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/50 to-teal-900/95" />
         <div className="relative z-10 container-narrow px-4">
           <h1
-            className="text-3xl sm:text-4xl md:text-5xl font-bold text-white"
+            className="text-3xl sm:text-4xl md:text-5xl font-bold text-white drop-shadow-lg"
             style={{ fontFamily: 'var(--font-playfair), serif' }}
           >
             Contact
           </h1>
-          <p className="mt-4 sm:mt-6 text-base sm:text-lg text-teal-100 max-w-2xl mx-auto">
+          <p className="mt-4 sm:mt-6 text-base sm:text-lg text-white/95 max-w-2xl mx-auto drop-shadow">
             Get in touch or book your stay at Palms Resort & Beach. We are
             here to help plan your St. Croix escape.
           </p>
