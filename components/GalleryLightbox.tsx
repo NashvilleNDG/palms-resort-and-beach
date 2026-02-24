@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useCallback, useEffect } from 'react';
-import Image from 'next/image';
+import { OptimizedImage } from '@/components/OptimizedImage';
 
 export type GalleryImage = { src: string; alt: string };
 
@@ -78,11 +78,10 @@ export function GalleryLightbox({ images }: { images: GalleryImage[] }) {
               aria-label={`View image ${index + 1}: ${alt}`}
             >
               <div className="relative aspect-[4/3] cursor-pointer">
-                <Image
+                <OptimizedImage
                   src={src}
                   alt={alt}
                   fill
-                  className="object-cover"
                   sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                 />
               </div>
@@ -115,11 +114,11 @@ export function GalleryLightbox({ images }: { images: GalleryImage[] }) {
             onTouchEnd={handleTouchEnd}
           >
             <div className="relative w-full max-w-5xl aspect-video max-h-[85vh]">
-              <Image
+              <OptimizedImage
                 src={images[currentIndex].src}
                 alt={images[currentIndex].alt}
                 fill
-                className="object-contain"
+                objectFit="contain"
                 sizes="100vw"
                 priority
               />

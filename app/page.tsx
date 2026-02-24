@@ -3,6 +3,7 @@ import Image from 'next/image';
 import type { Metadata } from 'next';
 import { ResortCarousel } from '@/components/ResortCarousel';
 import { NewsletterForm } from '@/components/NewsletterForm';
+import { OptimizedImage, OptimizedBackgroundImage } from '@/components/OptimizedImage';
 
 const MAPS_URL = 'https://maps.app.goo.gl/hyfj8NW5GkjBXpL67';
 const BOOKING_URL = 'https://hotels.cloudbeds.com/en/reservation/DRaDzt?currency=usd';
@@ -114,14 +115,8 @@ export default function HomePage() {
         aria-label="Welcome to Palms Resort & Beach"
         className="relative min-h-[75vh] sm:min-h-[85vh] flex flex-col justify-center items-center text-center bg-gray-900"
       >
-        <div
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat lg:hidden"
-          style={{ backgroundImage: `url(${HERO_IMAGE})` }}
-        />
-        <div
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat hidden lg:block"
-          style={{ backgroundImage: `url(${HERO_IMAGE_DESKTOP})` }}
-        />
+        <OptimizedBackgroundImage src={HERO_IMAGE} className="lg:hidden" />
+        <OptimizedBackgroundImage src={HERO_IMAGE_DESKTOP} className="hidden lg:block" />
         <div className="absolute inset-0 bg-gradient-to-b from-black/55 via-black/45 to-black/65" />
         <div className="relative z-10 px-4 py-16 sm:py-24 max-w-4xl">
           <p className="text-amber-300 uppercase tracking-[0.15em] sm:tracking-[0.2em] text-xs sm:text-sm font-semibold mb-3 sm:mb-4">
@@ -227,11 +222,10 @@ export default function HomePage() {
               </p>
             </div>
             <div className="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-xl">
-              <Image
+              <OptimizedImage
                 src="/images/resort-about.png"
                 alt="Palms Resort & Beach — tropical pathway with palm trees and resort buildings, St. Croix"
                 fill
-                className="object-cover"
                 sizes="(max-width: 1024px) 100vw, 50vw"
               />
             </div>
@@ -480,11 +474,11 @@ export default function HomePage() {
               />
             </div>
             <div className="relative aspect-[4/3] rounded-xl overflow-hidden shadow-lg">
-              <Image
+              <OptimizedImage
                 src="/images/event.jpg"
                 alt="Resort event and entertainment at Palms Resort & Beach"
                 fill
-                className="object-cover"
+                fallbackExt="jpg"
                 sizes="(max-width: 640px) 100vw, 33vw"
               />
             </div>
@@ -726,10 +720,7 @@ export default function HomePage() {
         aria-labelledby="cta-heading"
         className="relative min-h-[50vh] sm:min-h-[60vh] flex flex-col justify-center items-center text-center bg-teal-900"
       >
-        <div
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-          style={{ backgroundImage: `url(${CTA_IMAGE})` }}
-        />
+        <OptimizedBackgroundImage src={CTA_IMAGE} fallbackExt="jpg" />
         <div className="absolute inset-0 bg-teal-900/75" />
         <div className="relative z-10 px-4 py-16 sm:py-20 max-w-2xl">
           <h2

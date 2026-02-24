@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import Image from 'next/image';
+import { OptimizedImage, OptimizedBackgroundImage } from '@/components/OptimizedImage';
 
 const BOOKING_URL = 'https://hotels.cloudbeds.com/en/reservation/DRaDzt?currency=usd';
 
@@ -50,10 +50,7 @@ export default function RoomsPage() {
   return (
     <>
       <section className="relative py-16 sm:py-24 bg-teal-900 text-center min-h-[40vh] sm:min-h-[50vh] flex flex-col justify-center">
-        <div
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-          style={{ backgroundImage: 'url(/images/resort.png)' }}
-        />
+        <OptimizedBackgroundImage src="/images/resort.png" />
         <div className="absolute inset-0 bg-gradient-to-b from-teal-900/80 via-teal-900/70 to-teal-900" />
         <div className="relative z-10 container-narrow px-4">
           <p className="text-amber-300 uppercase tracking-widest text-xs sm:text-sm font-medium">
@@ -93,11 +90,10 @@ export default function RoomsPage() {
                         <p className="mt-2 sm:mt-3 text-sm sm:text-base text-gray-600">{room.description}</p>
                       </div>
                       <div className="relative h-56 sm:h-64 md:h-80 order-1 md:order-2">
-                        <Image
+                        <OptimizedImage
                           src={room.image}
                           alt={room.name}
                           fill
-                          className="object-cover"
                           sizes="(max-width: 768px) 100vw, 50vw"
                         />
                       </div>
@@ -105,11 +101,10 @@ export default function RoomsPage() {
                   ) : (
                     <>
                       <div className="relative h-56 sm:h-64 md:h-80">
-                        <Image
+                        <OptimizedImage
                           src={room.image}
                           alt={room.name}
                           fill
-                          className="object-cover"
                           sizes="(max-width: 768px) 100vw, 50vw"
                         />
                       </div>

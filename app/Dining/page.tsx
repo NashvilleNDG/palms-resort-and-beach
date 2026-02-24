@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import Image from 'next/image';
+import { OptimizedBackgroundImage } from '@/components/OptimizedImage';
 
 const BOOKING_URL = 'https://hotels.cloudbeds.com/en/reservation/DRaDzt?currency=usd';
 const MENU_PDF = '/images/Palms%20menu%20card.pdf';
@@ -18,10 +19,7 @@ export default function DiningPage() {
   return (
     <>
       <section className="relative py-16 sm:py-24 min-h-[40vh] sm:min-h-[50vh] flex flex-col justify-center text-center bg-teal-900">
-        <div
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-          style={{ backgroundImage: 'url(/images/restaurant.png)' }}
-        />
+        <OptimizedBackgroundImage src="/images/restaurant.png" />
         <div className="absolute inset-0 bg-gradient-to-b from-teal-900/80 via-teal-900/60 to-teal-900" />
         <div className="relative z-10 container-narrow px-4">
           <p className="text-amber-300 uppercase tracking-widest text-xs sm:text-sm font-medium">
@@ -195,10 +193,7 @@ export default function DiningPage() {
       </section>
 
       <section className="relative section-padding min-h-[40vh] flex flex-col justify-center text-center bg-teal-800">
-        <div
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-          style={{ backgroundImage: 'url(/images/restaurant-front.png)' }}
-        />
+        <OptimizedBackgroundImage src="/images/restaurant-front.png" />
         <div className="absolute inset-0 bg-teal-800/75" />
         <div className="relative z-10 container-narrow px-4">
           <p className="text-white text-lg drop-shadow">

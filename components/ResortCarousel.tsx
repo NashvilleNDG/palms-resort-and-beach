@@ -1,8 +1,8 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import Image from 'next/image';
 import Link from 'next/link';
+import { OptimizedImage } from '@/components/OptimizedImage';
 
 const ROTATE_INTERVAL_MS = 5000;
 
@@ -48,11 +48,10 @@ export function ResortCarousel({ images }: { images: CarouselImage[] }) {
                 style={{ opacity: i === index ? 1 : 0 }}
                 aria-hidden={i !== index}
               >
-                <Image
+                <OptimizedImage
                   src={img.src}
                   alt={img.alt}
                   fill
-                  className="object-cover"
                   sizes="(max-width: 1024px) 100vw, 1200px"
                   priority={i === 0}
                 />

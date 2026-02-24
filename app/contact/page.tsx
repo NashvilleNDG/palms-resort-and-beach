@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import { ContactForm } from '@/components/ContactForm';
+import { OptimizedBackgroundImage } from '@/components/OptimizedImage';
 
 const BOOKING_URL = 'https://hotels.cloudbeds.com/en/reservation/DRaDzt?currency=usd';
 const PHONE = 'tel:3407188920';
@@ -23,11 +24,7 @@ export default function ContactPage() {
   return (
     <>
       <section className="relative py-16 sm:py-24 bg-teal-900 text-center min-h-[40vh] flex flex-col justify-center">
-        <div
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-          style={{ backgroundImage: `url(${HERO_IMAGE})` }}
-          aria-hidden
-        />
+        <OptimizedBackgroundImage src={HERO_IMAGE} />
         <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/50 to-teal-900/95" />
         <div className="relative z-10 container-narrow px-4">
           <h1

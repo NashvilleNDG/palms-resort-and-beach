@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import Image from 'next/image';
+import { OptimizedImage, OptimizedBackgroundImage } from '@/components/OptimizedImage';
 
 const BOOKING_URL = 'https://hotels.cloudbeds.com/en/reservation/DRaDzt?currency=usd';
 
@@ -17,10 +18,7 @@ export default function BeachActivitiesPage() {
   return (
     <>
       <section className="relative py-16 sm:py-24 min-h-[40vh] sm:min-h-[50vh] flex flex-col justify-center text-center bg-teal-900">
-        <div
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-          style={{ backgroundImage: 'url(/images/swimming-pool1.jpg)' }}
-        />
+        <OptimizedBackgroundImage src="/images/swimming-pool1.jpg" fallbackExt="jpg" />
         <div className="absolute inset-0 bg-gradient-to-b from-teal-900/80 via-teal-900/60 to-teal-900" />
         <div className="relative z-10 container-narrow px-4">
           <p className="text-amber-300 uppercase tracking-widest text-xs sm:text-sm font-medium">
@@ -88,11 +86,10 @@ export default function BeachActivitiesPage() {
               </p>
             </div>
             <div className="relative h-64 sm:h-72 lg:h-80 rounded-xl sm:rounded-2xl overflow-hidden order-1 lg:order-2">
-              <Image
+              <OptimizedImage
                 src="/images/swimming-pool.png"
                 alt="Freshwater pool at Palms Resort & Beach with lounge chairs and palm trees, St. Croix"
                 fill
-                className="object-cover"
                 sizes="(max-width: 1024px) 100vw, 50vw"
               />
             </div>
@@ -102,32 +99,29 @@ export default function BeachActivitiesPage() {
 
       <section aria-labelledby="sports-heading" className="section-padding bg-stone-50">
         <div className="container-wide px-4">
-          <article className="rounded-xl sm:rounded-2xl overflow-hidden bg-white shadow-xl border border-stone-100 max-w-4xl mx-auto">
-            <div className="grid md:grid-cols-2 gap-0">
-              <div className="relative h-64 sm:h-72 md:h-80">
-                <Image
-                  src="/images/water-activity.png"
-                  alt="Beach and water activities at Palms Resort & Beach, St. Croix"
-                  fill
-                  className="object-cover"
-                  sizes="(max-width: 768px) 100vw, 50vw"
-                />
-              </div>
-              <div className="p-6 sm:p-8 flex flex-col justify-center text-center md:text-left">
-                <h2
-                  id="sports-heading"
-                  className="text-2xl font-bold text-gray-800"
-                  style={{ fontFamily: 'var(--font-playfair), serif' }}
-                >
-                  Water Sports & Activities
-                </h2>
-                <p className="mt-3 sm:mt-4 text-gray-600">
-                  Enjoy snorkeling gear and kayaks, access to Long Reef for
-                  diving and snorkeling, and seasonal guided turtle watch on our beach.
-                </p>
-              </div>
+          <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+            <div className="relative h-64 sm:h-72 lg:h-80 rounded-xl sm:rounded-2xl overflow-hidden">
+              <OptimizedImage
+                src="/images/water-activity.png"
+                alt="Beach and water activities at Palms Resort & Beach, St. Croix"
+                fill
+                sizes="(max-width: 1024px) 100vw, 50vw"
+              />
             </div>
-          </article>
+            <div>
+              <h2
+                id="sports-heading"
+                className="text-2xl font-bold text-gray-800"
+                style={{ fontFamily: 'var(--font-playfair), serif' }}
+              >
+                Water Sports & Activities
+              </h2>
+              <p className="mt-4 text-gray-600">
+                Enjoy snorkeling gear and kayaks, access to Long Reef for
+                diving and snorkeling, and seasonal guided turtle watch on our beach.
+              </p>
+            </div>
+          </div>
         </div>
       </section>
 
