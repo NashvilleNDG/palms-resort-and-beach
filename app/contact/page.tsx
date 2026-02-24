@@ -3,6 +3,7 @@ import { ContactForm } from '@/components/ContactForm';
 
 const BOOKING_URL = 'https://hotels.cloudbeds.com/en/reservation/DRaDzt?currency=usd';
 const PHONE = 'tel:3407188920';
+const EMAIL = 'mailto:office@palmsresortandbeach.com';
 const LOCATION = '4126, Christiansted, St Croix 00820, U.S. Virgin Islands';
 const MAPS_URL = 'https://maps.app.goo.gl/hyfj8NW5GkjBXpL67';
 const MAP_EMBED_URL = 'https://www.google.com/maps?q=4126+Christiansted+St+Croix+00820+USVI&output=embed';
@@ -10,7 +11,7 @@ const MAP_EMBED_URL = 'https://www.google.com/maps?q=4126+Christiansted+St+Croix
 export const metadata: Metadata = {
   title: 'Contact',
   description:
-    'Contact Palms Resort & Beach, St. Croix. 4126, Christiansted, St Croix 00820. Phone 340-718-8920. Book your stay online.',
+    'Contact Palms Resort & Beach, St. Croix. 4126, Christiansted, St Croix 00820. Phone 340-718-8920. Email office@palmsresortandbeach.com. Book your stay online.',
   openGraph: {
     title: 'Contact | Palms Resort & Beach',
     description: 'Get in touch or book your stay at Palms Resort & Beach, St. Croix.',
@@ -56,6 +57,15 @@ export default function ContactPage() {
                     className="text-teal-700 underline decoration-teal-500 transition hover:text-teal-800 focus:outline-none focus:ring-2 focus:ring-amber-500 rounded"
                   >
                     340-718-8920
+                  </a>
+                </p>
+                <p className="mt-2">
+                  <span className="font-medium text-gray-800">Email:</span>{' '}
+                  <a
+                    href={EMAIL}
+                    className="text-teal-700 underline decoration-teal-500 transition hover:text-teal-800 focus:outline-none focus:ring-2 focus:ring-amber-500 rounded"
+                  >
+                    office@palmsresortandbeach.com
                   </a>
                 </p>
               </address>

@@ -8,6 +8,7 @@ const BOOKING_URL = 'https://hotels.cloudbeds.com/en/reservation/DRaDzt?currency
 const PHONE = '340-718-8920';
 const PHONE_TEL = 'tel:3407188920';
 const HERO_IMAGE = '/images/resort-img1.png';
+const HERO_IMAGE_DESKTOP = '/images/resort-img.png';
 const CTA_IMAGE = '/images/swimming-pool.jpg';
 const BASE_URL = 'https://palmsresortandbeach.com';
 
@@ -113,8 +114,12 @@ export default function HomePage() {
         className="relative min-h-[75vh] sm:min-h-[85vh] flex flex-col justify-center items-center text-center bg-gray-900"
       >
         <div
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat lg:hidden"
           style={{ backgroundImage: `url(${HERO_IMAGE})` }}
+        />
+        <div
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat hidden lg:block"
+          style={{ backgroundImage: `url(${HERO_IMAGE_DESKTOP})` }}
         />
         <div className="absolute inset-0 bg-gradient-to-b from-black/55 via-black/45 to-black/65" />
         <div className="relative z-10 px-4 py-16 sm:py-24 max-w-4xl">
@@ -237,8 +242,10 @@ export default function HomePage() {
       <ResortCarousel
         images={[
           { src: '/images/resort-img.png', alt: 'Palms Resort & Beach beachfront and palm-lined shore, St. Croix' },
-          { src: '/images/resort-img1.png', alt: 'Palms Resort & Beach beach, palm trees and resort buildings, St. Croix' },
           { src: '/images/resort-about.png', alt: 'Palms Resort & Beach tropical pathway with palm trees and resort buildings, St. Croix' },
+          { src: '/images/restaurant-front.png', alt: 'Restaurant and bar at Palms Resort & Beach, St. Croix' },
+          { src: '/images/resort-img2.png', alt: 'Palms Resort & Beach resort buildings and palm trees, St. Croix' },
+          { src: '/images/room-view.png', alt: 'Room view at Palms Resort & Beach, St. Croix' },
         ]}
       />
 
