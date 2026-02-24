@@ -7,8 +7,7 @@ const MAPS_URL = 'https://maps.app.goo.gl/hyfj8NW5GkjBXpL67';
 const BOOKING_URL = 'https://hotels.cloudbeds.com/en/reservation/DRaDzt?currency=usd';
 const PHONE = '340-718-8920';
 const PHONE_TEL = 'tel:3407188920';
-const HERO_IMAGE =
-  'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1920&q=85';
+const HERO_IMAGE = '/images/resort-img1.png';
 const CTA_IMAGE = '/images/swimming-pool.jpg';
 const BASE_URL = 'https://palmsresortandbeach.com';
 
@@ -29,7 +28,7 @@ const hotelSchema = {
     postalCode: '00820',
     addressCountry: 'VI',
   },
-  image: [HERO_IMAGE],
+  image: [BASE_URL + HERO_IMAGE],
   amenityFeature: [
     { '@type': 'LocationFeatureSpecification', name: 'Beachfront' },
     { '@type': 'LocationFeatureSpecification', name: 'Pool' },
@@ -237,8 +236,8 @@ export default function HomePage() {
       {/* 4. See the resort — carousel */}
       <ResortCarousel
         images={[
-          { src: '/images/IMG_5770-2.jpg', alt: 'Palms Resort & Beach beachfront and palm-lined shore, St. Croix' },
-          { src: '/images/IMG_5810-2.jpg', alt: 'Palms Resort & Beach beach, palm trees and resort buildings, St. Croix' },
+          { src: '/images/resort-img.png', alt: 'Palms Resort & Beach beachfront and palm-lined shore, St. Croix' },
+          { src: '/images/resort-img1.png', alt: 'Palms Resort & Beach beach, palm trees and resort buildings, St. Croix' },
           { src: '/images/resort-about.png', alt: 'Palms Resort & Beach tropical pathway with palm trees and resort buildings, St. Croix' },
         ]}
       />
@@ -566,7 +565,7 @@ export default function HomePage() {
             While you&apos;re here, discover the best of the island — from historic towns
             to reef adventures and rum tastings.
           </p>
-          <ul className="mt-10 grid sm:grid-cols-2 lg:grid-cols-3 gap-4 max-w-4xl mx-auto" role="list">
+          <ul className="mt-10 grid sm:grid-cols-2 lg:grid-cols-3 gap-4 max-w-4xl mx-auto text-center lg:text-left" role="list">
             {[
               { name: 'Christiansted & Frederiksted', desc: 'Historic towns, shopping, and dining' },
               { name: 'Buck Island Reef', desc: 'Snorkeling and sailing trips' },
@@ -577,7 +576,7 @@ export default function HomePage() {
             ].map(({ name, desc }) => (
               <li
                 key={name}
-                className="rounded-xl bg-stone-50 p-4 border border-stone-200 text-left"
+                className="rounded-xl bg-stone-50 p-4 border border-stone-200 text-center lg:text-left"
               >
                 <span className="font-semibold text-gray-800">{name}</span>
                 <p className="mt-1 text-sm text-gray-600">{desc}</p>
@@ -604,7 +603,7 @@ export default function HomePage() {
             Everything You Need. Nothing You Don&apos;t.
           </h2>
           <ul
-            className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4"
+            className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4 text-center lg:text-left"
             role="list"
           >
             {[
@@ -619,7 +618,7 @@ export default function HomePage() {
             ].map(({ emoji, title, desc }) => (
               <li
                 key={title}
-                className="rounded-xl bg-white p-6 shadow-md text-left border border-stone-100 hover:shadow-lg transition-shadow"
+                className="rounded-xl bg-white p-6 shadow-md text-center lg:text-left border border-stone-100 hover:shadow-lg transition-shadow"
               >
                 <span className="text-3xl" aria-hidden>{emoji}</span>
                 <h3 className="mt-2 font-semibold text-gray-800">{title}</h3>

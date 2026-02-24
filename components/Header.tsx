@@ -5,8 +5,6 @@ import Link from 'next/link';
 import Image from 'next/image';
 
 const BOOKING_URL = 'https://hotels.cloudbeds.com/en/reservation/DRaDzt?currency=usd';
-const PHONE = 'tel:3407188920';
-const LOCATION = '4126, Christiansted, St Croix 00820, U.S. Virgin Islands';
 const LOGO_SRC = '/images/palmslogo.svg';
 
 const navLinks = [
@@ -42,67 +40,48 @@ export function Header() {
 
   return (
     <header className="sticky top-0 z-50 bg-white shadow-sm">
-      <div className="border-b border-gray-200 bg-stone-50">
-        <div className="container-wide flex flex-wrap items-center justify-center gap-x-4 gap-y-2 px-4 py-2 text-sm text-gray-800 sm:justify-start">
-          <a
-            href={PHONE}
-            className="flex min-h-[44px] items-center gap-1.5 transition hover:text-teal-700 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:ring-inset rounded"
-            aria-label="Call 340-718-8920"
-          >
-            <span aria-hidden>📞</span>
-            340-718-8920
-          </a>
-          <span className="hidden sm:flex items-center gap-1.5 min-h-[44px]">
-            <span aria-hidden>📍</span>
-            {LOCATION}
-          </span>
-          <span className="sm:hidden flex items-center gap-1.5 text-gray-600">
-            <span aria-hidden>📍</span>
-            St. Croix, USVI
-          </span>
-        </div>
-      </div>
-      <div className="container-wide flex items-center justify-between gap-4 px-4 py-3 lg:py-4">
+      <div className="container-wide flex items-center gap-4 px-4 py-3 lg:py-4">
+        <div className="flex-1 min-w-0 lg:hidden" aria-hidden />
         <Link
           href="/"
-          className="flex items-center gap-2 min-h-[44px] min-w-[44px] focus:outline-none focus:ring-2 focus:ring-amber-500 focus:ring-inset rounded"
+          className="flex flex-shrink-0 items-center justify-center gap-2 min-h-[44px] min-w-[44px] focus:outline-none focus:ring-2 focus:ring-amber-500 focus:ring-inset rounded lg:justify-start"
         >
           <Image
             src={LOGO_SRC}
             alt="Palms Resort & Beach"
-            width={160}
-            height={48}
-            className="h-9 w-auto sm:h-12"
+            width={200}
+            height={60}
+            className="h-11 w-auto sm:h-14"
             priority
           />
         </Link>
-
-        {/* Desktop nav — visible from lg */}
-        <nav
-          aria-label="Main navigation"
-          className="hidden lg:flex items-center gap-1"
-        >
-          {navLinks.map(({ href, label }) => (
-            <Link
-              key={href}
-              href={href}
-              className="min-h-[44px] inline-flex items-center px-3 text-gray-800 underline decoration-gray-400 underline-offset-2 transition hover:decoration-teal-600 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:ring-inset rounded"
-            >
-              {label}
-            </Link>
-          ))}
-          <a
-            href={BOOKING_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="min-h-[44px] inline-flex items-center rounded-md bg-amber-500 px-4 py-2.5 text-sm font-medium text-gray-900 transition hover:bg-amber-400 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:ring-offset-2"
+        <div className="flex flex-1 min-w-0 items-center justify-end lg:flex-none">
+          {/* Desktop nav — visible from lg */}
+          <nav
+            aria-label="Main navigation"
+            className="hidden lg:flex items-center gap-1"
           >
-            Book Now
-          </a>
-        </nav>
+            {navLinks.map(({ href, label }) => (
+              <Link
+                key={href}
+                href={href}
+                className="min-h-[44px] inline-flex items-center px-3 text-gray-800 transition hover:text-teal-600 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:ring-inset rounded"
+              >
+                {label}
+              </Link>
+            ))}
+            <a
+              href={BOOKING_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="min-h-[44px] inline-flex items-center rounded-md bg-amber-500 px-4 py-2.5 text-sm font-medium text-gray-900 transition hover:bg-amber-400 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:ring-offset-2"
+            >
+              Book Now
+            </a>
+          </nav>
 
-        {/* Mobile menu button */}
-        <button
+          {/* Mobile menu button */}
+          <button
           type="button"
           onClick={() => setMenuOpen((o) => !o)}
           className="lg:hidden min-h-[44px] min-w-[44px] flex items-center justify-center rounded-md text-gray-700 hover:bg-stone-100 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:ring-inset"
@@ -118,6 +97,7 @@ export function Header() {
             </svg>
           )}
         </button>
+        </div>
       </div>
 
       {/* Mobile nav overlay — full screen, nav content padded below header */}

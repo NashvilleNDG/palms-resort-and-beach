@@ -1,8 +1,11 @@
 import type { Metadata } from 'next';
+import { ContactForm } from '@/components/ContactForm';
 
 const BOOKING_URL = 'https://hotels.cloudbeds.com/en/reservation/DRaDzt?currency=usd';
 const PHONE = 'tel:3407188920';
 const LOCATION = '4126, Christiansted, St Croix 00820, U.S. Virgin Islands';
+const MAPS_URL = 'https://maps.app.goo.gl/hyfj8NW5GkjBXpL67';
+const MAP_EMBED_URL = 'https://www.google.com/maps?q=4126+Christiansted+St+Croix+00820+USVI&output=embed';
 
 export const metadata: Metadata = {
   title: 'Contact',
@@ -60,6 +63,18 @@ export default function ContactPage() {
                 Front desk is available for questions and reservations. For
                 the best availability, book directly online.
               </p>
+              <h2
+                className="mt-10 text-xl sm:text-2xl font-bold text-gray-800"
+                style={{ fontFamily: 'var(--font-playfair), serif' }}
+              >
+                Send Us a Message
+              </h2>
+              <p className="mt-2 text-gray-600">
+                Have a question or special request? Fill out the form below and we&apos;ll get back to you.
+              </p>
+              <div className="mt-4">
+                <ContactForm />
+              </div>
             </div>
 
             <div>
@@ -82,13 +97,33 @@ export default function ContactPage() {
                 Reserve Your Room Today →
               </a>
               <div className="mt-8 rounded-xl border border-stone-200 bg-white p-6">
-                <p className="font-medium text-gray-800">Map & Directions</p>
+                <p className="font-medium text-gray-800">Map &amp; Directions</p>
                 <p className="mt-2 text-sm text-gray-600">
                   Palms Resort & Beach is located at 4126, Christiansted, St Croix 00820,
                   U.S. Virgin Islands. Search for the address or &quot;Palms Resort & Beach St. Croix&quot; in your
                   preferred maps app for driving directions from the airport or
                   ferry.
                 </p>
+                <a
+                  href={MAPS_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-4 inline-flex min-h-[44px] items-center font-medium text-teal-700 hover:text-teal-800 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:ring-offset-2 rounded"
+                >
+                  Open in Google Maps →
+                </a>
+                <div className="mt-4 rounded-lg overflow-hidden aspect-video bg-stone-100">
+                  <iframe
+                    title="Palms Resort & Beach location map"
+                    src={MAP_EMBED_URL}
+                    width="100%"
+                    height="100%"
+                    className="w-full h-full min-h-[200px] border-0"
+                    allowFullScreen
+                    loading="lazy"
+                    referrerPolicy="no-referrer-when-downgrade"
+                  />
+                </div>
               </div>
             </div>
           </div>

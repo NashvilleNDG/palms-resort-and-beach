@@ -11,6 +11,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/Dining',
     '/Gallery',
     '/contact',
+    '/privacy',
+    '/terms',
   ];
   return routes.map((path) => ({
     url: path ? `${baseUrl}${path}` : baseUrl,
