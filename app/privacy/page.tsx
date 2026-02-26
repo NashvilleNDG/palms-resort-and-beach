@@ -72,13 +72,13 @@ export default function PrivacyPage() {
           <h2 className="text-xl font-bold text-gray-800 mt-8 mb-4">Your Rights</h2>
           <p className="text-gray-600">
             Depending on your location, you may have the right to access, correct, or delete your
-            personal information, or to opt out of marketing communications.             Contact us at 340-718-8920, office@palmsresortandbeach.com, or through our contact form to exercise these rights.
+            personal information, or to opt out of marketing communications.             Contact us at 340-718-8920, office@palmsresortbeach.com, or through our contact form to exercise these rights.
           </p>
 
           <h2 className="text-xl font-bold text-gray-800 mt-8 mb-4">Contact</h2>
           <p className="text-gray-600">
             For questions about this Privacy Policy, contact Palms Resort & Beach at 4126,
-            Christiansted, St Croix 00820, U.S. Virgin Islands, call 340-718-8920, or email office@palmsresortandbeach.com.
+            Christiansted, St Croix 00820, U.S. Virgin Islands, call 340-718-8920, or email office@palmsresortbeach.com.
           </p>
         </div>
       </section>

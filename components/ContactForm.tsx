@@ -2,8 +2,8 @@
 
 import { useState } from 'react';
 
-const WEB3FORMS_ACCESS_KEY = process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY || 'd11c7aec-6dbf-4c0e-879c-4db0c0fdcfe6';
-const INQUIRY_EMAIL = 'office@palmsresortandbeach.com';
+const WEB3FORMS_ACCESS_KEY = process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY || '3d42ea6c-68c4-4ba0-81fa-32a8fcb967a4';
+const INQUIRY_EMAIL = 'office@palmsresortbeach.com';
 const WEB3FORMS_ENDPOINT = 'https://api.web3forms.com/submit';
 
 export function ContactForm() {

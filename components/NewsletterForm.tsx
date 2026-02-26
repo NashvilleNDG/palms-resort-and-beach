@@ -5,7 +5,7 @@ import { useState } from 'react';
 const WEB3FORMS_NEWSLETTER_KEY =
   process.env.NEXT_PUBLIC_WEB3FORMS_NEWSLETTER_ACCESS_KEY || '15513994-dc11-40fc-b05a-24d6d7dc1bce';
 const WEB3FORMS_ENDPOINT = 'https://api.web3forms.com/submit';
-const NEWSLETTER_EMAIL = 'office@palmsresortandbeach.com';
+const NEWSLETTER_EMAIL = 'office@palmsresortbeach.com';
 
 export function NewsletterForm() {
   const [status, setStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');

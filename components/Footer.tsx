@@ -4,7 +4,7 @@ import Image from 'next/image';
 
 const BOOKING_URL = 'https://hotels.cloudbeds.com/en/reservation/DRaDzt?currency=usd';
 const PHONE = 'tel:3407188920';
-const EMAIL = 'mailto:office@palmsresortandbeach.com';
+const EMAIL = 'mailto:office@palmsresortbeach.com';
 const LOCATION = '4126, Christiansted, St Croix 00820, U.S. Virgin Islands';
 const LOGO_SRC = '/images/palms-logo-transparent.svg';
 
@@ -115,7 +115,7 @@ export function Footer() {
                   href={EMAIL}
                   className="inline-flex items-center min-h-[44px] transition hover:text-amber-300 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:ring-inset rounded"
                 >
-                  office@palmsresortandbeach.com
+                  office@palmsresortbeach.com
                 </a>
               </p>
             </address>
