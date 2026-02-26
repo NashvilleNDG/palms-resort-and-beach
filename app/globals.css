@@ -34,3 +34,370 @@ body {
     @apply min-h-[44px] min-w-[44px];
   }
 }
+
+/* ========== Email capture popup ========== */
+/* Hide drag handle and mobile image on desktop */
+.email-popup-drag-handle {
+  display: none;
+}
+.email-popup-mobile-image {
+  display: none;
+}
+
+.email-popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  background: rgba(0, 0, 0, 0.65);
+  backdrop-filter: blur(4px);
+  animation: emailPopupOverlayIn 0.3s ease forwards;
+}
+.email-popup-overlay--closing {
+  animation: emailPopupOverlayOut 0.3s ease forwards;
+}
+
+@keyframes emailPopupOverlayIn {
+  0%   { opacity: 0; background: rgba(0,0,0,0); backdrop-filter: blur(0px); }
+  100% { opacity: 1; background: rgba(0,0,0,0.65); backdrop-filter: blur(4px); }
+}
+@keyframes emailPopupOverlayOut {
+  0%   { opacity: 1; background: rgba(0,0,0,0.65); backdrop-filter: blur(4px); }
+  100% { opacity: 0; background: rgba(0,0,0,0); backdrop-filter: blur(0px); }
+}
+
+.email-popup-modal {
+  position: relative;
+  max-width: 860px;
+  width: 100%;
+  min-height: 480px;
+  border-radius: 16px;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.45);
+  overflow: hidden;
+  background: #ffffff;
+  animation: emailPopupFadeIn 0.3s ease forwards;
+}
+.email-popup-modal--closing {
+  animation: emailPopupFadeOut 0.3s ease forwards;
+}
+
+@keyframes emailPopupFadeIn {
+  0%   { opacity: 0; transform: scale(0.94); }
+  100% { opacity: 1; transform: scale(1); }
+}
+@keyframes emailPopupFadeOut {
+  0%   { opacity: 1; transform: scale(1); }
+  100% { opacity: 0; transform: scale(0.94); }
+}
+
+.email-popup-close {
+  position: absolute;
+  top: 14px;
+  right: 16px;
+  z-index: 10;
+  background: transparent;
+  border: none;
+  font-size: 22px;
+  color: #888888;
+  cursor: pointer;
+  line-height: 1;
+  padding: 4px;
+}
+.email-popup-close:hover {
+  color: #333333;
+}
+
+.email-popup-inner {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  min-height: 480px;
+}
+
+.email-popup-left {
+  flex: 0 0 45%;
+  min-width: 280px;
+  min-height: 480px;
+  background-image: url('/images/resort-img1.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+}
+.email-popup-left::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.15), rgba(0, 0, 0, 0.4));
+}
+
+.email-popup-right {
+  flex: 1;
+  padding: 48px 44px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background: #ffffff;
+  position: relative;
+}
+
+.email-popup-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+}
+
+.email-popup-label {
+  font-size: 11px;
+  letter-spacing: 2.5px;
+  color: #c8873a;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+
+.email-popup-headline {
+  font-size: 28px;
+  color: #0d2e2b;
+  font-weight: 700;
+  line-height: 1.25;
+  margin-bottom: 12px;
+}
+
+.email-popup-subtext {
+  font-size: 14px;
+  color: #555555;
+  line-height: 1.6;
+  margin-bottom: 28px;
+}
+
+.email-popup-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.email-popup-error {
+  font-size: 13px;
+  color: #b91c1c;
+  margin-bottom: 12px;
+  text-align: center;
+}
+
+.email-popup-field {
+  margin-bottom: 16px;
+}
+.email-popup-field:last-of-type {
+  margin-bottom: 24px;
+}
+
+.email-popup-field label {
+  display: block;
+  font-size: 12px;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 6px;
+}
+
+.email-popup-field input {
+  width: 100%;
+  padding: 12px 16px;
+  border: 1.5px solid #d0d0d0;
+  border-radius: 8px;
+  font-size: 15px;
+  color: #333;
+  box-sizing: border-box;
+}
+.email-popup-field input:focus {
+  border-color: #0d4a45;
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(13, 74, 69, 0.12);
+}
+.email-popup-field input::placeholder {
+  color: #999;
+}
+
+.email-popup-cta {
+  background: #c8873a;
+  color: #ffffff;
+  width: 100%;
+  padding: 14px 24px;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: 700;
+  border: none;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.15s ease;
+}
+.email-popup-cta:hover {
+  background: #b07630;
+  transform: translateY(-1px);
+}
+.email-popup-cta:active {
+  transform: translateY(0);
+}
+.email-popup-cta:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.email-popup-privacy {
+  font-size: 11px;
+  color: #999999;
+  text-align: center;
+  margin-top: 14px;
+}
+
+.email-popup-skip {
+  display: block;
+  width: 100%;
+  text-align: center;
+  margin-top: 16px;
+  font-size: 12px;
+  color: #aaaaaa;
+  text-decoration: underline;
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 4px;
+}
+.email-popup-skip:hover {
+  color: #666666;
+}
+
+.email-popup-success {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.email-popup-success-emoji {
+  font-size: 48px;
+  margin-bottom: 12px;
+  line-height: 1;
+}
+.email-popup-success-headline {
+  font-size: 24px;
+  color: #0d2e2b;
+  font-weight: 700;
+  margin-bottom: 12px;
+  line-height: 1.25;
+}
+.email-popup-success-subtext {
+  font-size: 14px;
+  color: #555555;
+  text-align: center;
+  line-height: 1.6;
+  margin-bottom: 20px;
+  max-width: 320px;
+}
+
+/* Tablet (641px – 1024px) */
+@media (min-width: 641px) and (max-width: 1024px) {
+  .email-popup-modal {
+    max-width: 680px;
+    min-height: 420px;
+  }
+  .email-popup-inner {
+    min-height: 420px;
+  }
+  .email-popup-left {
+    min-width: 220px;
+    max-width: 240px;
+  }
+  .email-popup-right {
+    padding: 32px 28px;
+  }
+  .email-popup-headline {
+    font-size: 22px !important;
+  }
+  .email-popup-overlay {
+    padding: 20px;
+  }
+}
+
+/* Mobile (max-width: 640px) – bottom sheet */
+@media (max-width: 640px) {
+  .email-popup-overlay {
+    align-items: flex-end;
+    justify-content: center;
+    padding: 0;
+  }
+  .email-popup-modal {
+    width: 100%;
+    max-width: 100%;
+    min-height: auto;
+    border-radius: 20px 20px 0 0;
+    max-height: 92vh;
+    overflow-y: auto;
+  }
+  .email-popup-inner {
+    flex-direction: column !important;
+    min-height: auto;
+  }
+  .email-popup-left {
+    display: none !important;
+  }
+  .email-popup-mobile-image {
+    display: block !important;
+    height: 180px;
+    min-height: 180px;
+    background-image: url('/images/resort.webp');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+  }
+  .email-popup-mobile-image::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to bottom,
+      rgba(13, 74, 69, 0.2),
+      rgba(13, 74, 69, 0.65)
+    );
+  }
+  .email-popup-drag-handle {
+    display: block !important;
+    width: 40px;
+    height: 4px;
+    background: #dddddd;
+    border-radius: 2px;
+    margin: 12px auto 0 auto;
+  }
+  .email-popup-right {
+    width: 100%;
+    padding: 24px 20px 32px 20px;
+  }
+  .email-popup-headline {
+    font-size: 22px !important;
+  }
+  .email-popup-content {
+    width: 100%;
+  }
+  .email-popup-close {
+    color: #ffffff;
+    top: 12px;
+    right: 12px;
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 50%;
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .email-popup-close:hover {
+    color: #ffffff;
+    background: rgba(0, 0, 0, 0.35);
+  }
+}
