@@ -2,22 +2,25 @@
 
 import { useState, useEffect, useRef, useCallback } from 'react';
 
-const STORAGE_KEY = 'palms_popup_shown';
-const DELAY_MS = 5000;
+const SUBSCRIBED_KEY = 'palms_popup_subscribed';
+const SESSION_INITIAL_SHOWN = 'palms_popup_initial_shown';
+const SESSION_5MIN_SHOWN = 'palms_popup_5min_shown';
+const INITIAL_DELAY_MS = 5000;
+const FIVE_MINUTES_MS = 5 * 60 * 1000;
 const EXIT_INTENT_TOP_PX = 20;
 const SUCCESS_AUTO_CLOSE_MS = 4000;
 // Same key as footer newsletter (one Web3Forms form for both)
 const WEB3FORMS_POPUP_KEY = process.env.NEXT_PUBLIC_WEB3FORMS_NEWSLETTER_ACCESS_KEY || 'dcdd249b-3c29-4cd6-b8cb-8d1258e250cd';
 const WEB3FORMS_ENDPOINT = 'https://api.web3forms.com/submit';
 
-function getStored(): boolean {
+function hasSubscribed(): boolean {
   if (typeof window === 'undefined') return true;
-  return window.localStorage.getItem(STORAGE_KEY) === 'true';
+  return window.localStorage.getItem(SUBSCRIBED_KEY) === 'true';
 }
 
-function setStored(): void {
+function setSubscribed(): void {
   if (typeof window === 'undefined') return;
-  window.localStorage.setItem(STORAGE_KEY, 'true');
+  window.localStorage.setItem(SUBSCRIBED_KEY, 'true');
 }
 
 export function EmailPopup() {
@@ -26,24 +29,20 @@ export function EmailPopup() {
   const [isSuccess, setIsSuccess] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'submitting' | 'error'>('idle');
   const [errorMessage, setErrorMessage] = useState('');
-  const hasTriggeredRef = useRef(false);
   const successCloseTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
-  const openPopup = useCallback(() => {
-    if (getStored() || hasTriggeredRef.current) return;
-    hasTriggeredRef.current = true;
+  const doOpenPopup = useCallback(() => {
     setIsOpen(true);
     setIsClosing(false);
     setIsSuccess(false);
   }, []);
 
   const closePopup = useCallback(() => {
-    setStored();
-    setIsClosing(true);
     if (successCloseTimerRef.current) {
       clearTimeout(successCloseTimerRef.current);
       successCloseTimerRef.current = null;
     }
+    setIsClosing(true);
     setTimeout(() => {
       setIsOpen(false);
       setIsClosing(false);
@@ -52,21 +51,35 @@ export function EmailPopup() {
   }, []);
 
   useEffect(() => {
-    if (getStored()) return;
+    if (hasSubscribed()) return;
 
-    const timer = setTimeout(openPopup, DELAY_MS);
+    const initialTimer = setTimeout(() => {
+      if (typeof window === 'undefined' || window.sessionStorage.getItem(SESSION_INITIAL_SHOWN)) return;
+      window.sessionStorage.setItem(SESSION_INITIAL_SHOWN, 'true');
+      doOpenPopup();
+    }, INITIAL_DELAY_MS);
+
+    const fiveMinTimer = setTimeout(() => {
+      if (typeof window === 'undefined' || window.sessionStorage.getItem(SESSION_5MIN_SHOWN)) return;
+      window.sessionStorage.setItem(SESSION_5MIN_SHOWN, 'true');
+      doOpenPopup();
+    }, FIVE_MINUTES_MS);
 
     function handleExitIntent(e: MouseEvent) {
-      if (e.clientY <= EXIT_INTENT_TOP_PX) openPopup();
+      if (e.clientY <= EXIT_INTENT_TOP_PX && typeof window !== 'undefined' && !window.sessionStorage.getItem(SESSION_INITIAL_SHOWN)) {
+        window.sessionStorage.setItem(SESSION_INITIAL_SHOWN, 'true');
+        doOpenPopup();
+      }
     }
 
     document.addEventListener('mouseout', handleExitIntent);
 
     return () => {
-      clearTimeout(timer);
+      clearTimeout(initialTimer);
+      clearTimeout(fiveMinTimer);
       document.removeEventListener('mouseout', handleExitIntent);
     };
-  }, [openPopup]);
+  }, [doOpenPopup]);
 
   useEffect(() => {
     return () => {
@@ -109,7 +122,7 @@ export function EmailPopup() {
         });
         const data = await res.json().catch(() => ({}));
         if (!res.ok || !data.success) throw new Error(data.message || 'Submission failed');
-        setStored();
+        setSubscribed();
         setIsSuccess(true);
         setSubmitStatus('idle');
         form.reset();
