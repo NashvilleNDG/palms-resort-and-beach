@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { GalleryLightbox } from '@/components/GalleryLightbox';
 import { OptimizedBackgroundImage } from '@/components/OptimizedImage';
 import { BASE_URL } from '@/lib/site';
+import { getBreadcrumbSchema } from '@/lib/schema';
 
 export const metadata: Metadata = {
   title: 'Gallery',
@@ -11,6 +12,13 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Gallery | Palms Resort & Beach',
     description: 'See the resort, beach, rooms, and activities in our gallery.',
+    images: [
+      { url: '/images/resort-img1.png', width: 1200, height: 630, alt: 'Palms Resort & Beach, St. Croix — beach and resort views' },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    images: ['/images/resort-img1.png'],
   },
 };
 
@@ -53,6 +61,12 @@ const galleryImages = [
 export default function GalleryPage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(getBreadcrumbSchema('/Gallery', 'Gallery')),
+        }}
+      />
       <section className="relative py-16 sm:py-24 min-h-[40vh] sm:min-h-[50vh] flex flex-col justify-center text-center bg-teal-900">
         <OptimizedBackgroundImage src="/images/resort-img3.png" />
         <div className="absolute inset-0 bg-gradient-to-b from-teal-900/80 via-teal-900/60 to-teal-900" />

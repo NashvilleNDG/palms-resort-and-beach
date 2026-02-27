@@ -31,7 +31,25 @@ const hotelSchema = {
     postalCode: '00820',
     addressCountry: 'VI',
   },
+  geo: {
+    '@type': 'GeoCoordinates',
+    latitude: 17.76191,
+    longitude: -64.73084,
+  },
   image: [BASE_URL + HERO_IMAGE],
+  sameAs: [
+    'https://facebook.com/palmsresortandbeach',
+    'https://instagram.com/palmsresortandbeach',
+    'https://tiktok.com/@palmsresortandbeach',
+    'https://youtube.com/@palmsresortandbeach',
+  ],
+  openingHoursSpecification: {
+    '@type': 'OpeningHoursSpecification',
+    dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
+    opens: '00:00',
+    closes: '23:59',
+    description: 'Front desk 24/7',
+  },
   amenityFeature: [
     { '@type': 'LocationFeatureSpecification', name: 'Beachfront' },
     { '@type': 'LocationFeatureSpecification', name: 'Pool' },
@@ -78,6 +96,40 @@ const faqSchema = {
         text: 'Complimentary snorkeling gear and kayaks are available. We also offer access to Long Reef for diving and seasonal guided turtle watch on our beach.',
       },
     },
+    {
+      '@type': 'Question',
+      name: 'Is there parking at the resort?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Yes. Free parking is available on site for guests.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Is Wi-Fi available?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Yes. Free Wi-Fi is available throughout the resort for guests.',
+      },
+    },
+  ],
+};
+
+// SEO: Guest reviews for rich snippets
+const reviewSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Hotel',
+  name: 'Palms Resort & Beach',
+  aggregateRating: {
+    '@type': 'AggregateRating',
+    ratingValue: '4.5',
+    reviewCount: '3',
+    bestRating: '5',
+  },
+  review: [
+    { '@type': 'Review', author: { '@type': 'Person', name: 'Karen' }, reviewBody: 'Staff was very courteous breakfast was excellent rooms were clean and neat hotel overall was very inviting and a great experience.', reviewRating: { '@type': 'Rating', ratingValue: '5' } },
+    { '@type': 'Review', author: { '@type': 'Person', name: 'Richard' }, reviewBody: 'The place was good location and was right on the beach rooms where nice for the price will stay there again.', reviewRating: { '@type': 'Rating', ratingValue: '4' } },
+    { '@type': 'Review', author: { '@type': 'Person', name: 'Bevern' }, reviewBody: 'Room was clean, staff was wonderful, balcony was good. Did stop in for breakfast.', reviewRating: { '@type': 'Rating', ratingValue: '5' } },
   ],
 };
 
@@ -115,6 +167,12 @@ export default function HomePage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{
           __html: JSON.stringify(faqSchema),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(reviewSchema),
         }}
       />
 
@@ -158,6 +216,9 @@ export default function HomePage() {
               View Rooms
             </Link>
           </div>
+          <p className="mt-4 text-sm text-white/80">
+            Book direct for the best rate and availability — no booking fees.
+          </p>
         </div>
         <div
           className="absolute bottom-6 left-1/2 -translate-x-1/2 text-white/80 animate-bounce"
@@ -646,6 +707,50 @@ export default function HomePage() {
       >
         <div className="container-narrow px-4 text-center">
           <p className="text-amber-300 uppercase tracking-wider text-sm font-medium">
+            Why Book Direct?
+          </p>
+          <h2
+            id="book-direct-heading"
+            className="mt-2 text-2xl sm:text-3xl font-bold"
+            style={{ fontFamily: 'var(--font-playfair), serif' }}
+          >
+            Best Rate. No Fees. Real Support.
+          </h2>
+          <ul className="mt-6 flex flex-wrap justify-center gap-6 sm:gap-10 text-teal-100 text-center" role="list">
+            <li className="flex flex-col items-center">
+              <span className="text-2xl font-bold text-amber-300">✓</span>
+              <span className="mt-1 font-medium">Best rate guaranteed</span>
+              <span className="text-sm text-teal-200">when you book with us</span>
+            </li>
+            <li className="flex flex-col items-center">
+              <span className="text-2xl font-bold text-amber-300">✓</span>
+              <span className="mt-1 font-medium">No booking fees</span>
+              <span className="text-sm text-teal-200">no hidden charges</span>
+            </li>
+            <li className="flex flex-col items-center">
+              <span className="text-2xl font-bold text-amber-300">✓</span>
+              <span className="mt-1 font-medium">Direct support</span>
+              <span className="text-sm text-teal-200">questions? We&apos;re here</span>
+            </li>
+          </ul>
+          <a
+            href={BOOKING_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-8 inline-flex items-center justify-center min-h-[44px] rounded-lg bg-amber-500 px-6 py-3 font-semibold text-gray-900 hover:bg-amber-400 transition"
+          >
+            Book Direct Now →
+          </a>
+        </div>
+      </section>
+
+      {/* 12. Newsletter / Stay in touch */}
+      <section
+        aria-labelledby="newsletter-heading"
+        className="section-padding bg-teal-800 text-white"
+      >
+        <div className="container-narrow px-4 text-center">
+          <p className="text-amber-300 uppercase tracking-wider text-sm font-medium">
             Stay in Touch
           </p>
           <h2
@@ -709,6 +814,18 @@ export default function HomePage() {
               <dd className="mt-2 text-gray-600">
                 Complimentary snorkeling gear and kayaks are available. We offer access to
                 Long Reef for diving and seasonal guided turtle watch on our beach.
+              </dd>
+            </div>
+            <div className="rounded-xl bg-stone-50 p-5 border border-stone-200">
+              <dt className="font-semibold text-gray-800">Is there parking at the resort?</dt>
+              <dd className="mt-2 text-gray-600">
+                Yes. Free parking is available on site for guests.
+              </dd>
+            </div>
+            <div className="rounded-xl bg-stone-50 p-5 border border-stone-200">
+              <dt className="font-semibold text-gray-800">Is Wi-Fi available?</dt>
+              <dd className="mt-2 text-gray-600">
+                Yes. Free Wi-Fi is available throughout the resort for guests.
               </dd>
             </div>
           </dl>

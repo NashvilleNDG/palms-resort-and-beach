@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import Image from 'next/image';
 import { OptimizedBackgroundImage } from '@/components/OptimizedImage';
 import { BASE_URL } from '@/lib/site';
+import { getBreadcrumbSchema } from '@/lib/schema';
 
 const BOOKING_URL = 'https://hotels.cloudbeds.com/en/reservation/DRaDzt?currency=usd';
 const MENU_PDF = '/images/Palms%20menu%20card.pdf';
@@ -13,13 +14,26 @@ export const metadata: Metadata = {
   alternates: { canonical: `${BASE_URL}/Dining` },
   openGraph: {
     title: 'Dining & Nightlife | Palms Resort & Beach',
-    description: 'Restaurant, beach bar, brunch, and nightly entertainment on St. Croix.',
+    description: 'Restaurant, beach bar, Sunday brunch, and nightly entertainment on St. Croix.',
+    images: [
+      { url: '/images/beach-restaurant.png', width: 1200, height: 630, alt: 'Beach restaurant at Palms Resort & Beach, St. Croix' },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    images: ['/images/beach-restaurant.png'],
   },
 };
 
 export default function DiningPage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(getBreadcrumbSchema('/Dining', 'Dining & Nightlife')),
+        }}
+      />
       <section className="relative py-16 sm:py-24 min-h-[40vh] sm:min-h-[50vh] flex flex-col justify-center text-center bg-teal-900">
         <OptimizedBackgroundImage src="/images/restaurant.png" />
         <div className="absolute inset-0 bg-gradient-to-b from-teal-900/80 via-teal-900/60 to-teal-900" />

@@ -42,7 +42,9 @@ export const metadata: Metadata = {
     'Escape to Palms Resort & Beach on St. Croix, U.S. Virgin Islands. 45 beachfront rooms, mile-long palm-lined beach, freshwater pool, dining, and endless Caribbean sunshine.',
   icons: {
     icon: '/images/palmslogo.svg',
+    apple: '/images/palmslogo.svg',
   },
+  manifest: '/manifest.json',
   keywords: [
     'Palms Resort & Beach',
     'St. Croix',

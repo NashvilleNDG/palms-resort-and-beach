@@ -43,7 +43,9 @@ Runs unit tests (Jest + React Testing Library). Use `npm run test:watch` for wat
 - **Publish directory**: `out` (the static export output)
 - No server or rewrites required; use any static host (Render, Vercel, Netlify, GitHub Pages, S3, etc.).
 
-Set `NEXT_PUBLIC_BASE_URL` to your production URL (e.g. `https://yoursite.com`) so the sitemap and canonical URLs use correct absolute URLs. Default is `https://palmsresortandbeach.com`.
+Set `NEXT_PUBLIC_BASE_URL` to your production URL (e.g. `https://yoursite.com`) so the sitemap and canonical URLs use correct absolute URLs. Default is `https://palmsresortbeach.com`.
+
+**Forms:** Contact, newsletter, and email popup use Web3Forms with keys set in code (no .env required). To use your own keys, copy `.env.example` to `.env.local` and set `NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY` (contact) and `NEXT_PUBLIC_WEB3FORMS_NEWSLETTER_ACCESS_KEY` (newsletter + popup share this key).
 
 ## SEO & performance
 

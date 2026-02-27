@@ -2,8 +2,7 @@
 
 import { useState } from 'react';
 
-const WEB3FORMS_NEWSLETTER_KEY =
-  process.env.NEXT_PUBLIC_WEB3FORMS_NEWSLETTER_ACCESS_KEY || '15513994-dc11-40fc-b05a-24d6d7dc1bce';
+const WEB3FORMS_NEWSLETTER_KEY = process.env.NEXT_PUBLIC_WEB3FORMS_NEWSLETTER_ACCESS_KEY || 'dcdd249b-3c29-4cd6-b8cb-8d1258e250cd';
 const WEB3FORMS_ENDPOINT = 'https://api.web3forms.com/submit';
 const NEWSLETTER_EMAIL = 'office@palmsresortbeach.com';
 
@@ -13,6 +12,12 @@ export function NewsletterForm() {
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
+    if (!WEB3FORMS_NEWSLETTER_KEY) {
+      setStatus('error');
+      setErrorMessage('Newsletter signup is not configured. Please try again later or contact us.');
+      return;
+    }
+
     const form = e.currentTarget;
     const formData = new FormData(form);
     const name = (formData.get('name') as string) || '';
@@ -24,17 +29,17 @@ export function NewsletterForm() {
     try {
       const res = await fetch(WEB3FORMS_ENDPOINT, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
         body: JSON.stringify({
           access_key: WEB3FORMS_NEWSLETTER_KEY,
           to: NEWSLETTER_EMAIL,
-          from_name: name,
-          email,
+          from_name: name.trim(),
+          email: email.trim(),
           subject: 'Newsletter signup - Palms Resort & Beach',
-          message: `Newsletter subscription from ${name} (${email})`,
+          message: `Newsletter subscription from ${name.trim()} (${email.trim()})`,
         }),
       });
-      const data = await res.json();
+      const data = await res.json().catch(() => ({}));
       if (!res.ok || !data.success) throw new Error(data.message || 'Submission failed');
       setStatus('success');
       form.reset();

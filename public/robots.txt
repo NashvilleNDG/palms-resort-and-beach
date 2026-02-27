@@ -10,4 +10,4 @@ Allow: /
 User-agent: Anthropic-AI
 Allow: /
 
-Sitemap: https://palmsresortandbeach.com/sitemap.xml
+Sitemap: https://palmsresortbeach.com/sitemap.xml

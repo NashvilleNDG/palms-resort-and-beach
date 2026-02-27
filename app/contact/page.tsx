@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { ContactForm } from '@/components/ContactForm';
 import { OptimizedBackgroundImage } from '@/components/OptimizedImage';
 import { BASE_URL } from '@/lib/site';
+import { getBreadcrumbSchema } from '@/lib/schema';
 
 const BOOKING_URL = 'https://hotels.cloudbeds.com/en/reservation/DRaDzt?currency=usd';
 const PHONE = 'tel:3407188920';
@@ -14,17 +15,55 @@ const HERO_IMAGE = '/images/resort-img4.png';
 export const metadata: Metadata = {
   title: 'Contact',
   description:
-    'Contact Palms Resort & Beach, St. Croix. Address, phone 340-718-8920, email. Book your stay online.',
+    'Contact Palms Resort & Beach in Christiansted, St. Croix. Address, phone 340-718-8920, email. Book direct.',
   alternates: { canonical: `${BASE_URL}/contact` },
   openGraph: {
     title: 'Contact | Palms Resort & Beach',
-    description: 'Get in touch or book your stay at Palms Resort & Beach, St. Croix.',
+    description: 'Get in touch or book your stay at Palms Resort & Beach, Christiansted, St. Croix.',
+    images: [
+      { url: HERO_IMAGE, width: 1200, height: 630, alt: 'Palms Resort & Beach, St. Croix — contact and directions' },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    images: [HERO_IMAGE],
   },
 };
 
 export default function ContactPage() {
+  const localBusinessSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'Hotel',
+    name: 'Palms Resort & Beach',
+    telephone: '+1-340-718-8920',
+    email: 'office@palmsresortbeach.com',
+    address: {
+      '@type': 'PostalAddress',
+      streetAddress: '4126',
+      addressLocality: 'Christiansted',
+      addressRegion: 'St Croix',
+      postalCode: '00820',
+      addressCountry: 'VI',
+    },
+    geo: { '@type': 'GeoCoordinates', latitude: 17.76191, longitude: -64.73084 },
+    url: BASE_URL + '/contact',
+    openingHours: 'Mo-Su 00:00-23:59',
+  };
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(getBreadcrumbSchema('/contact', 'Contact')),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(localBusinessSchema),
+        }}
+      />
       <section className="relative py-16 sm:py-24 bg-teal-900 text-center min-h-[40vh] flex flex-col justify-center">
         <OptimizedBackgroundImage src={HERO_IMAGE} />
         <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/50 to-teal-900/95" />

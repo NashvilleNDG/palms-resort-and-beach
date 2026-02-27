@@ -31,17 +31,17 @@ export function ContactForm() {
     try {
       const res = await fetch(WEB3FORMS_ENDPOINT, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
         body: JSON.stringify({
           access_key: WEB3FORMS_ACCESS_KEY,
           to: INQUIRY_EMAIL,
-          from_name: name,
-          email,
-          message: phone ? `Phone: ${phone}\n\n${message}` : message,
-          subject: `Contact form inquiry from ${name}`,
+          from_name: name.trim(),
+          email: email.trim(),
+          message: phone ? `Phone: ${phone.trim()}\n\n${message.trim()}` : message.trim(),
+          subject: `Contact form inquiry from ${name.trim()}`,
         }),
       });
-      const data = await res.json();
+      const data = await res.json().catch(() => ({}));
       if (!res.ok || !data.success) throw new Error(data.message || 'Submission failed');
       setStatus('success');
       form.reset();

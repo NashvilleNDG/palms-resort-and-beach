@@ -1,0 +1,17 @@
+{
+  "name": "Palms Resort & Beach",
+  "short_name": "Palms Resort",
+  "description": "St. Croix beachfront resort. 45 rooms, mile-long beach, pool, dining. Book direct.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0f766e",
+  "theme_color": "#0f766e",
+  "icons": [
+    {
+      "src": "/images/palmslogo.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}

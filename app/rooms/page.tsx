@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { OptimizedImage, OptimizedBackgroundImage } from '@/components/OptimizedImage';
 import { BASE_URL } from '@/lib/site';
+import { getBreadcrumbSchema } from '@/lib/schema';
 
 const BOOKING_URL = 'https://hotels.cloudbeds.com/en/reservation/DRaDzt?currency=usd';
 
@@ -11,7 +12,14 @@ export const metadata: Metadata = {
   alternates: { canonical: `${BASE_URL}/rooms` },
   openGraph: {
     title: 'Accommodations | Palms Resort & Beach',
-    description: '45 beachfront rooms with private patios or balconies on St. Croix.',
+    description: '45 beachfront rooms with private patios or balconies on St. Croix. Ocean view, ocean front, suites. Book direct.',
+    images: [
+      { url: '/images/room-view.png', width: 1200, height: 630, alt: 'Beachfront room at Palms Resort & Beach, St. Croix' },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    images: ['/images/room-view.png'],
   },
 };
 
@@ -51,6 +59,12 @@ const amenities = [
 export default function RoomsPage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(getBreadcrumbSchema('/rooms', 'Accommodations')),
+        }}
+      />
       <section className="relative py-16 sm:py-24 bg-teal-900 text-center min-h-[40vh] sm:min-h-[50vh] flex flex-col justify-center">
         <OptimizedBackgroundImage src="/images/resort.png" />
         <div className="absolute inset-0 bg-gradient-to-b from-teal-900/80 via-teal-900/70 to-teal-900" />

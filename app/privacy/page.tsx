@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import { BASE_URL } from '@/lib/site';
+import { getBreadcrumbSchema } from '@/lib/schema';
 
 export const metadata: Metadata = {
   title: 'Privacy Policy',
@@ -15,6 +16,12 @@ export const metadata: Metadata = {
 export default function PrivacyPage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(getBreadcrumbSchema('/privacy', 'Privacy Policy')),
+        }}
+      />
       <section className="relative py-16 sm:py-24 bg-teal-900 text-center">
         <div className="absolute inset-0 bg-gradient-to-b from-teal-800 to-teal-900" />
         <div className="relative z-10 container-narrow px-4">

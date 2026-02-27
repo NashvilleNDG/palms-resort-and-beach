@@ -33,6 +33,22 @@ body {
   .touch-target {
     @apply min-h-[44px] min-w-[44px];
   }
+  /* Skip to main content - visible on focus for keyboard/screen reader users */
+  .skip-link {
+    position: absolute;
+    left: -9999px;
+    z-index: 99999;
+    padding: 12px 20px;
+    background: #0f766e;
+    color: white;
+    font-weight: 700;
+    border-radius: 0 0 4px 0;
+    text-decoration: none;
+  }
+  .skip-link:focus {
+    left: 0;
+    top: 0;
+  }
 }
 
 /* ========== Email capture popup ========== */

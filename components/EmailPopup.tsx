@@ -6,8 +6,8 @@ const STORAGE_KEY = 'palms_popup_shown';
 const DELAY_MS = 5000;
 const EXIT_INTENT_TOP_PX = 20;
 const SUCCESS_AUTO_CLOSE_MS = 4000;
-const WEB3FORMS_POPUP_KEY =
-  process.env.NEXT_PUBLIC_WEB3FORMS_POPUP_ACCESS_KEY || 'dcdd249b-3c29-4cd6-b8cb-8d1258e250cd';
+// Same key as footer newsletter (one Web3Forms form for both)
+const WEB3FORMS_POPUP_KEY = process.env.NEXT_PUBLIC_WEB3FORMS_NEWSLETTER_ACCESS_KEY || 'dcdd249b-3c29-4cd6-b8cb-8d1258e250cd';
 const WEB3FORMS_ENDPOINT = 'https://api.web3forms.com/submit';
 
 function getStored(): boolean {
@@ -88,20 +88,27 @@ export function EmailPopup() {
     setSubmitStatus('submitting');
     setErrorMessage('');
 
-    fetch(WEB3FORMS_ENDPOINT, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        access_key: WEB3FORMS_POPUP_KEY,
-        from_name: name,
-        email,
-        subject: 'Resort news & tips signup - Palms Resort & Beach',
-        message: `Popup signup: ${name} (${email})`,
-      }),
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        if (!data.success) throw new Error(data.message || 'Submission failed');
+    if (!WEB3FORMS_POPUP_KEY) {
+      setSubmitStatus('error');
+      setErrorMessage('Form is not configured. Please use the contact form or call us at 340-718-8920.');
+      return;
+    }
+
+    (async () => {
+      try {
+        const res = await fetch(WEB3FORMS_ENDPOINT, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+          body: JSON.stringify({
+            access_key: WEB3FORMS_POPUP_KEY,
+            from_name: name,
+            email,
+            subject: 'Resort news & tips signup - Palms Resort & Beach',
+            message: `Popup signup: ${name} (${email})`,
+          }),
+        });
+        const data = await res.json().catch(() => ({}));
+        if (!res.ok || !data.success) throw new Error(data.message || 'Submission failed');
         setStored();
         setIsSuccess(true);
         setSubmitStatus('idle');
@@ -109,11 +116,11 @@ export function EmailPopup() {
         successCloseTimerRef.current = setTimeout(() => {
           closePopup();
         }, SUCCESS_AUTO_CLOSE_MS);
-      })
-      .catch(() => {
+      } catch {
         setSubmitStatus('error');
         setErrorMessage('Something went wrong. Please try again or call us at 340-718-8920.');
-      });
+      }
+    })();
   }
 
   if (!isOpen) return null;
