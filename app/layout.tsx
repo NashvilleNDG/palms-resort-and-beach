@@ -5,8 +5,8 @@ import './globals.css';
 import { SiteLayout } from '@/components/SiteLayout';
 import { BASE_URL } from '@/lib/site';
 
-const GA_MEASUREMENT_ID = 'G-VHXKG7RS8Q';
-const GTM_ID = 'GTM-P4TH96VZ';
+const GA_MEASUREMENT_ID = 'G-SYK0B5DXW5';
+const GTM_ID = 'GTM-PQ79RNR4';
 const OG_IMAGE = '/images/resort-img1.png';
 const DEFAULT_OG_TITLE = 'Palms Resort & Beach — St. Croix, U.S. Virgin Islands';
 const DEFAULT_OG_DESCRIPTION =
@@ -86,14 +86,6 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${playfair.variable} ${lato.variable}`}>
       <body className="min-h-screen flex flex-col font-sans">
-        {/* Google Tag Manager - injected into head by Next.js (beforeInteractive) */}
-        <Script id="gtm-head" strategy="beforeInteractive">
-          {`(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','${GTM_ID}');`}
-        </Script>
         {/* Google Tag Manager (noscript) - immediately after opening body */}
         <noscript>
           <iframe
@@ -104,6 +96,15 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             title="Google Tag Manager"
           />
         </noscript>
+        {/* Google Tag Manager - injected into head by Next.js (beforeInteractive) */}
+        <Script id="gtm-head" strategy="beforeInteractive">
+          {`(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','${GTM_ID}');`}
+        </Script>
+        {/* Google tag (gtag.js) */}
         <Script
           src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
           strategy="afterInteractive"
